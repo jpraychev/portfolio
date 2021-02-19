@@ -11,7 +11,7 @@
                 <a href = " {% url 'tag-view-cbv' tag.name %} "> {{ tag }},  </a>
         {% endfor %}
         </p>
-        <p>Posted in {{ post.category }}</p>
+       <p>Posted {{ post.time_created_before }} in {{ post.category }}</p>
     </br>
         
     {% endfor %}
