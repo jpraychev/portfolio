@@ -1,0 +1,13 @@
+{% extends 'home/base.html' %}
+
+{% block title %} All Posts by tag {% endblock %}
+
+{% block content %}
+    {% for post in posts_by_tag %}
+        <p> {{ post.title }} by {{post.author }} </p>
+        <p><a href = "{% url 'post-detail' post.id %}"> {{ post.content }} </a></p>
+        </p>
+    </br>
+        
+    {% endfor %}
+{% endblock %}
