@@ -8,7 +8,7 @@ from django.shortcuts import get_object_or_404
 
 class PostsView(ListView):
 
-    # paginate_by = 10
+    paginate_by = 3
     model = Post
     context_object_name = 'all_posts'
     template_name = 'posts/all_posts.html'
@@ -27,7 +27,7 @@ def tag_view(request, tag_name):
 
     tag_id = get_object_or_404(searched_tag)
     posts_by_tag = Post.objects.filter(tags=tag_id)
-    
+
     return render(request, 'posts/posts_tag.html', {'posts_by_tag': posts_by_tag})
 
 # CBV - passing url parameters

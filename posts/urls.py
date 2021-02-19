@@ -7,13 +7,13 @@ urlpatterns = [
     path('<int:pk>', PostsDetailView.as_view(), name='post-detail'),
     # **********
     # FBV - Both lines are correct! 
-    re_path(r'^tags/(?P<tag_name>[A-Za-z_]*)/$', tag_view, name='tag-view'),
+    # re_path(r'^tags/(?P<tag_name>[A-Za-z_]*)/$', tag_view, name='tag-view'),
     # path('tags/<slug:tag_name>/', tag_view, name='tag-view')
     # **********
 
     # **********
     # CBV paths
-    # path('tags/<tag_name>/', TagView.as_view(), name='tag-view-cbv')
+    path('tags/<tag_name>/', TagView.as_view(), name='tag-view-cbv')
     # **********
 
     # path('logout/', LogoutView.as_view(), name='logout'),
