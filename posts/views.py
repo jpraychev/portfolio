@@ -23,16 +23,12 @@ class PostsDetailView(DetailView):
 # FBV - passing url parameters
 def tag_view(request, tag_name):
 
-    tag = Tag.objects.filter(name=tag_name).values_list('id', flat=True)
+    searched_tag = Tag.objects.filter(name=tag_name).values_list('id', flat=True)
 
-    if not tag:
-        print('Query set is empty. Reeturn message to user')
-        return 
-    else:
-        for x in tag:
-            tag_id = x
-        posts_by_tag = Post.objects.filter(tags=tag_id)
-        return render(request, 'posts/posts_tag.html', {'posts_by_tag': posts_by_tag})
+    tag_id = get_object_or_404(searched_tag)
+    posts_by_tag = Post.objects.filter(tags=tag_id)
+    
+    return render(request, 'posts/posts_tag.html', {'posts_by_tag': posts_by_tag})
 
 # CBV - passing url parameters
 
