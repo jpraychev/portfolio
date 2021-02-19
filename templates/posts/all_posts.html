@@ -11,6 +11,7 @@
                 <a href = " {% url 'tag-view-cbv' tag.name %} "> {{ tag }},  </a>
         {% endfor %}
         </p>
+        <p>Posted in {{ post.category }}</p>
     </br>
         
     {% endfor %}

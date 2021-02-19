@@ -24,10 +24,11 @@ class Post(models.Model):
     content = models.TextField()
     header_image = models.ImageField(null=True, blank=True, upload_to='post_images')
     date_posted = models.DateTimeField(default=timezone.now)
+    posted_before = models.DateTimeField()
     author = models.ForeignKey(CustomUser, on_delete=models.CASCADE, default='jraychev')
     author_bio = models.CharField(max_length=200, default='default-bio')
     tags = models.ManyToManyField(Tag)
-    category = models.ManyToManyField(Category)
+    category = models.ForeignKey(Category, on_delete=models.DO_NOTHING)
     status = models.IntegerField(choices=STATUS, default=0)
     
     class Meta:
