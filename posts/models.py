@@ -5,7 +5,8 @@ from math import floor
 
 STATUS = (
     (0, 'Publish'),
-    (1, 'Draft')
+    (1, 'Draft'),
+    (2, 'Preview'),
 )
 
 class Tag(models.Model):
