@@ -1,5 +1,10 @@
 from django.urls import path, re_path
-from .views import PostsView, PostsDetailView, TagView, CategoryView, tag_view, cat_view
+from .views import PostsView, \
+                    PostsDetailView, \
+                    TagView, tag_view, \
+                    CategoryView, cat_view, \
+                    PostCreateView, create_view \
+
 # from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -13,4 +18,7 @@ urlpatterns = [
     # re_path(r'^category/(?P<cat_name>[A-Za-z_]*)/$', cat_view, name='cat-view'), # FBV with re
     # path('category/<slug:cat_name>/', cat_view, name='cat-view') # FBV with only slug 
     path('category/<cat_name>/', CategoryView.as_view(), name='cat-view-cbv'), # CBV
+
+    # path('create/', create_view, name='post-create-fbv'), # CBV
+    path('create/', PostCreateView.as_view(), name='post-create-cbv'), # CBV    
 ]

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView, DetailView, RedirectView
+from django.views.generic import TemplateView, ListView, DetailView, RedirectView, CreateView
 from django.urls import reverse_lazy, reverse
 from .models import Tag, Category, Post
 from django.shortcuts import get_object_or_404
@@ -70,7 +70,7 @@ def cat_view(request, cat_name):
 
 # CBV - passing url parameters
 class CategoryView(ListView):
-
+    
     template_name = 'posts/posts_cat.html'
     context_object_name = 'posts_by_cat'
     paginate_by = _PAGINATE_BY
@@ -84,3 +84,17 @@ class CategoryView(ListView):
         cat_id = get_object_or_404(searched_cat)
 
         return Post.objects.filter(category=cat_id)
+
+def create_view(request):
+    pass
+
+class PostCreateView(CreateView):
+
+    model = Post
+    template_name = 'posts/post_create.html'
+    fields = ['title', 'content', 'tags', 'category']
+    success_url = reverse_lazy('all-posts')
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
