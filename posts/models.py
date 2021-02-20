@@ -31,6 +31,9 @@ class Post(models.Model):
     tags = models.ManyToManyField(Tag)
     category = models.ForeignKey(Category, on_delete=models.DO_NOTHING)
     status = models.IntegerField(choices=STATUS, default=0)
+    
+    def get_tags(self):
+        return ", ".join([str(p) for p in self.tags.all()])
 
     # A property is a dynamic field based on another field.
     # Calculates time since post was published
@@ -60,5 +63,4 @@ class Post(models.Model):
         ordering = ['-date_posted']
 
     def __str__(self):
-        return str(self.title) 
-
+        return str(self.title)
