@@ -12,7 +12,7 @@ class CustomUserAdmin(UserAdmin):
     # The fields to be used in displaying the User model.
     # These override the definitions on the base UserAdmin
     # that reference specific fields on auth.User.
-    list_display = ['id', 'email', 'username', 'first_name','last_name','department', 'slug']
+    list_display = ['id', 'email', 'username', 'first_name','last_name','department', 'slug', 'is_active']
     fieldsets = UserAdmin.fieldsets + (
         (None, {'fields': ('department', 'slug', 'profile_image',)}),
     )

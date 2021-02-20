@@ -55,6 +55,7 @@ class TagView(ListView):
 
         return Post.objects.filter(tags=tag_id, status=0)
 
+
 # FBV - passing url parameters
 def cat_view(request, cat_name):
 
@@ -85,6 +86,8 @@ class CategoryView(ListView):
         cat_id = get_object_or_404(searched_cat)
 
         return Post.objects.filter(category=cat_id, status=0)
+
+
 
 def create_view(request):
     pass
