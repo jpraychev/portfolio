@@ -4,7 +4,7 @@
 
 {% block content %}
     {% for post in all_posts %}
-        <p> {{ post.title }} by {{post.author }} </p>
+        <p> {{ post.title }} by {{ post.author }} </p>
         <p><a href = "{% url 'post-detail' post.id %}"> {{ post.content }} </a></p>
         <p> Tags: 
             {% for tag in post.tags.all %}
@@ -22,7 +22,7 @@
                 <a href="?page=1">&laquo; first</a>
                 <a href="?page={{ page_obj.previous_page_number }}">previous</a>
             {% endif %}
-    
+            
             <span class="current">
                 Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
             </span>
