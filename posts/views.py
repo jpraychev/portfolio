@@ -92,6 +92,7 @@ class CategoryView(ListView):
 def create_view(request):
     pass
 
+class BeforePostCreateView
 class PostCreateView(LoginRequiredMixin, CreateView):
 
     model = Post
