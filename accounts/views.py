@@ -17,14 +17,11 @@ class SignUpView(CreateView):
     template_name = 'accounts/signup.html'
 
     def form_valid(self, form):
-        form.instance.created_by = self.request.user
-        return super().form_valid(form)
-
-    def form_valid(self, form):
 		# messages.success(self.request, 'You have registered successfully. You can now log in.')
         user = form.save()
         user.is_active = False
         user.save()
+        return super().form_valid(form)
 
         # user.email holds the email
         send_mail(

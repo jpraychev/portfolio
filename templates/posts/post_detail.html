@@ -3,7 +3,6 @@
 {% block title %} Single post {% endblock %}
 
 {% block content %}
-    
     <p> {{ object.title }} by {{ object.author }}</p>
     <p> Tags: 
         {% for tag in post.tags.all %}

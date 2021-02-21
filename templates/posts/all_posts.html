@@ -4,6 +4,7 @@
 
 {% block content %}
     {% for post in all_posts %}
+    {{ post.status }}
         <p> {{ post.title }} by {{ post.author }} </p>
         <p><a href = "{% url 'post-detail' post.id %}"> {{ post.content }} </a></p>
         <p> Tags: 

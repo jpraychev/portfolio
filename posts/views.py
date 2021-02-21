@@ -4,23 +4,24 @@ from django.urls import reverse_lazy, reverse
 from .models import Tag, Category, Post
 from django.shortcuts import get_object_or_404
 from django.core.paginator import Paginator
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Define private variables for views
-_PAGINATE_BY = 3
-
-# Create your views here.
+_PAGINATE_BY = 5
 
 class PostsView(ListView):
 
     paginate_by = _PAGINATE_BY
-    model = Post
+    # model = Post
+    queryset = Post.objects.filter(status=0) # Return only post with status publish
     context_object_name = 'all_posts'
     template_name = 'posts/all_posts.html'
-    # login_url = reverse_lazy('login')
+    login_url = reverse_lazy('login')
 
 class PostsDetailView(DetailView):
 
-    model = Post
+    # model = Post
+    queryset = Post.objects.filter(status=0)
     template_name = 'posts/post_detail.html'
 
 # FBV - passing url parameters
@@ -29,7 +30,7 @@ def tag_view(request, tag_name):
     searched_tag = Tag.objects.filter(name=tag_name).values_list('id', flat=True)
 
     tag_id = get_object_or_404(searched_tag)
-    posts_by_tag = Post.objects.filter(tags=tag_id)
+    posts_by_tag = Post.objects.filter(tags=tag_id, status=0)
 
     paginator = Paginator(posts_by_tag, _PAGINATE_BY)
     page_number = request.GET.get('page')
@@ -52,7 +53,8 @@ class TagView(ListView):
         # Get object or throw 404
         tag_id = get_object_or_404(searched_tag)
 
-        return Post.objects.filter(tags=tag_id)
+        return Post.objects.filter(tags=tag_id, status=0)
+
 
 # FBV - passing url parameters
 def cat_view(request, cat_name):
@@ -60,7 +62,7 @@ def cat_view(request, cat_name):
     category = Category.objects.filter(name=cat_name)
 
     cat_id = get_object_or_404(category)
-    posts_by_cat = Post.objects.filter(category=cat_id)
+    posts_by_cat = Post.objects.filter(category=cat_id, status=0)
 
     paginator = Paginator(posts_by_cat, _PAGINATE_BY)
     page_number = request.GET.get('page')
@@ -83,12 +85,15 @@ class CategoryView(ListView):
         # Get object or throw 404
         cat_id = get_object_or_404(searched_cat)
 
-        return Post.objects.filter(category=cat_id)
+        return Post.objects.filter(category=cat_id, status=0)
+
+
 
 def create_view(request):
     pass
 
-class PostCreateView(CreateView):
+class BeforePostCreateView
+class PostCreateView(LoginRequiredMixin, CreateView):
 
     model = Post
     template_name = 'posts/post_create.html'
@@ -97,4 +102,5 @@ class PostCreateView(CreateView):
 
     def form_valid(self, form):
         form.instance.author = self.request.user
+        form.instance.status = 2 # Status set to Preview, instead of Publish
         return super().form_valid(form)

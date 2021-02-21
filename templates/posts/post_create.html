@@ -6,9 +6,10 @@
 
 <h2> Create new post </h2>
 
-<form method="post">{% csrf_token %}
+<form method="post" >
+    {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Save">
+    <input type="submit" value="Publish">
 </form>
 
 {% endblock %}
