@@ -6,6 +6,7 @@ from django.shortcuts import get_object_or_404
 from django.core.paginator import Paginator
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import PostCreateForm
+from django.http import HttpResponseRedirect
 
 # Define private variables for views
 _PAGINATE_BY = 5
@@ -98,14 +99,37 @@ class BeforePostCreateView(FormView):
     template_name = 'posts/before_post_create.html'
     form_class = PostCreateForm
 
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            request.session['title'] = form.cleaned_data.get('title')
+            request.session['content'] = form.cleaned_data.get('content')
+            return HttpResponseRedirect(reverse('post-create-cbv'))
+        else:
+            print('False')
+        
+
 class PostCreateView(LoginRequiredMixin, CreateView):
 
     model = Post
     template_name = 'posts/post_create.html'
-    fields = ['title', 'content', 'tags', 'category']
+    fields = ['tags', 'category']
     success_url = reverse_lazy('all-posts')
+
+    # def get(self, request):
+    #     print(request.session['initial_form_data'])
+    #     form = PostCreateForm()
+        
+    #     return render(request, 'posts/post_create.html', {'form': form})
 
     def form_valid(self, form):
         form.instance.author = self.request.user
         form.instance.status = 2 # Status set to Preview, instead of Publish
+        # print(self.request.session['initial_form_data'])
+        # print(form.cleaned_data)
+        initial_data = form.save(commit = False)
+        initial_data.title = self.request.session['title']
+        initial_data.content = self.request.session['content']
+        initial_data.save()
+        # form.cleaned_data = {**self.request.session['initial_form_data'], **form.cleaned_data }
         return super().form_valid(form)
