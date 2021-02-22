@@ -3,7 +3,8 @@ from .views import PostsView, \
                     PostsDetailView, \
                     TagView, tag_view, \
                     CategoryView, cat_view, \
-                    PostCreateView, create_view \
+                    PostCreateView, create_view, \
+                    BeforePostCreateView
 
 # from django.contrib.auth import views as auth_views
 
@@ -20,5 +21,7 @@ urlpatterns = [
     path('category/<cat_name>/', CategoryView.as_view(), name='cat-view-cbv'), # CBV
 
     # path('create/', create_view, name='post-create-fbv'), # CBV
-    path('create/', PostCreateView.as_view(), name='post-create-cbv'), # CBV    
+    path('create/', PostCreateView.as_view(), name='post-create-cbv'), # CBV  
+
+    path('create/initial', BeforePostCreateView.as_view(), name='initial-post-create')  
 ]

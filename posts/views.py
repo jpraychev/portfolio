@@ -1,10 +1,11 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView, DetailView, RedirectView, CreateView
+from django.views.generic import TemplateView, ListView, DetailView, RedirectView, CreateView, FormView
 from django.urls import reverse_lazy, reverse
 from .models import Tag, Category, Post
 from django.shortcuts import get_object_or_404
 from django.core.paginator import Paginator
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .forms import PostCreateForm
 
 # Define private variables for views
 _PAGINATE_BY = 5
@@ -92,7 +93,11 @@ class CategoryView(ListView):
 def create_view(request):
     pass
 
-class BeforePostCreateView
+class BeforePostCreateView(FormView):
+
+    template_name = 'posts/before_post_create.html'
+    form_class = PostCreateForm
+
 class PostCreateView(LoginRequiredMixin, CreateView):
 
     model = Post
