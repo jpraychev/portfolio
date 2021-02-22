@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from accounts.models import CustomUser
 from math import floor
+from PIL import Image
 
 STATUS = (
     (0, 'Publish'),
@@ -24,7 +25,7 @@ class Category(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
-    header_image = models.ImageField(null=True, blank=True, upload_to='post_images')
+    header_image = models.ImageField(default='profile_default.jpg', upload_to='post_images')
     date_posted = models.DateTimeField(default=timezone.now)
     # time_since_created = models.DateTimeField()
     author = models.ForeignKey(CustomUser, on_delete=models.CASCADE, default=1)
@@ -33,6 +34,18 @@ class Post(models.Model):
     category = models.ForeignKey(Category, on_delete=models.DO_NOTHING)
     status = models.IntegerField(choices=STATUS, default=0)
     
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        
+        img = Image.open(self.header_image.path)
+
+        # TO DO
+        # Saved image should have static height and width in order to prevent the user to upload too big files
+        if img.height > 300 or img.width > 300:
+            output_size = (300, 300)
+            img.thumbnail(output_size)
+            img.save(self.header_image.path)
+
     def get_tags(self):
         return ", ".join([str(p) for p in self.tags.all()])
 

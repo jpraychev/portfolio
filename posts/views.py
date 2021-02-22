@@ -113,7 +113,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
     model = Post
     template_name = 'posts/post_create.html'
-    fields = ['tags', 'category']
+    fields = ['header_image', 'tags', 'category']
     success_url = reverse_lazy('all-posts')
 
     # def get(self, request):
@@ -130,6 +130,8 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         initial_data = form.save(commit = False)
         initial_data.title = self.request.session['title']
         initial_data.content = self.request.session['content']
+        print(initial_data.header_image)
         initial_data.save()
+        
         # form.cleaned_data = {**self.request.session['initial_form_data'], **form.cleaned_data }
         return super().form_valid(form)
