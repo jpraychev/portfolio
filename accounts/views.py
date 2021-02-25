@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, TemplateView, RedirectView, UpdateView
+from django.views.generic import CreateView, TemplateView, RedirectView, UpdateView, FormView
 from django.contrib.auth.views import LoginView, LogoutView
 from django.http import HttpResponse, Http404, HttpResponseRedirect, HttpResponsePermanentRedirect
 from django.contrib.auth import logout, login, authenticate
@@ -10,6 +10,18 @@ from .models import CustomUser
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 import re
 from django.core.mail import send_mail
+from django.contrib.auth import authenticate
+from django.shortcuts import get_object_or_404
+
+def username_valid(username):
+
+    invalid_characters = re.compile('(?![a-zA-Z0-9.@_]).')
+    valid_email = re.compile(r'(^[\w\-\.]+@[\w]+\.[\w]{1,5}$)')
+
+    if not invalid_characters.search(username):
+        if re.match(valid_email, username):
+            return True
+    return False
 
 class SignUpView(CreateView):
     form_class = CustomUserCreationForm
@@ -56,7 +68,48 @@ class ProfileUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         return False
 
 class LoginView(LoginView):
+
     template_name = 'accounts/login.html'
+
+    def post(self, request, *args, **kwargs):
+
+        form = self.form_class(request, request.POST)
+
+        username = request.POST['username']
+        password = request.POST['password']
+
+        # Username custom validation
+        if not username_valid(username): 
+            print('Username validation failed. Redirecting...')
+            return render(request, self.template_name, {'form': form})
+
+        current_user = CustomUser.objects.filter(email=username).values_list('username', flat=True)
+
+        if current_user:
+            get_user = get_object_or_404(current_user)
+            user = authenticate(username=get_user, password=password)
+        else:
+            print('User does no exists')
+            return render(request, self.template_name, {'form': form})
+
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                if (self.request.GET.get('next') is None):
+                    # messages.success(request, 'You have successfully logged in.')
+                    return HttpResponseRedirect('/')
+                else:
+                    # messages.success(request, 'You have successfully logged in.')
+                    return HttpResponseRedirect(self.request.GET.get('next'))
+            else:
+                # messages.error(request, 'Something went wront. Contact the system administrator!')
+                return HttpResponseRedirect('/')
+        else:
+            # messages.error(request, 'Something went wront. Contact the system administrator!')
+            return HttpResponseRedirect('/')
+
+        return render(request, self.template_name, {'form': form})
+
 
 class LogoutView(RedirectView):
 
