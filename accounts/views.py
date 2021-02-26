@@ -110,7 +110,6 @@ class LoginView(LoginView):
 
         return render(request, self.template_name, {'form': form})
 
-
 class LogoutView(RedirectView):
 
     template_name = 'accounts/logout.html'

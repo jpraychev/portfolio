@@ -27,7 +27,6 @@ class Post(models.Model):
     content = models.TextField()
     header_image = models.ImageField(default='profile_default.jpg', upload_to='post_images')
     date_posted = models.DateTimeField(default=timezone.now)
-    # time_since_created = models.DateTimeField()
     author = models.ForeignKey(CustomUser, on_delete=models.CASCADE, default=1)
     author_bio = models.CharField(max_length=200, default='default-bio')
     tags = models.ManyToManyField(Tag)
@@ -61,7 +60,7 @@ class Post(models.Model):
             time_since_creation = str(seconds//60) + ' mins ago'
         elif seconds > 3600 and seconds < 86400:
             time_since_creation = str(seconds//3600) + ' hours ago'
-        elif seconds > 8600 and seconds < 432.000:
+        elif seconds > 8600 and seconds < 432000:
             time_since_creation = str(seconds//86000) + ' days ago'
         else:
             posted_on = str(self.date_posted.strftime('%b. %d'))

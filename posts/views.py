@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView, DetailView, RedirectView, CreateView, FormView
+from django.views.generic import TemplateView, ListView, DetailView, RedirectView, CreateView, FormView, DeleteView
 from django.urls import reverse_lazy, reverse
 from .models import Tag, Category, Post
+from accounts.models import CustomUser
 from django.shortcuts import get_object_or_404
 from django.core.paginator import Paginator
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -89,8 +90,6 @@ class CategoryView(ListView):
 
         return Post.objects.filter(category=cat_id, status=0)
 
-
-
 def create_view(request):
     pass
 
@@ -108,7 +107,6 @@ class BeforePostCreateView(FormView):
         else:
             print('False')
         
-
 class PostCreateView(LoginRequiredMixin, CreateView):
 
     model = Post
@@ -135,3 +133,31 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         
         # form.cleaned_data = {**self.request.session['initial_form_data'], **form.cleaned_data }
         return super().form_valid(form)
+
+class PostDeleteView(LoginRequiredMixin, DeleteView):
+    model = Post
+    template_name = 'posts/post_delete.html'
+    success_url = reverse_lazy('all-posts')
+    
+    def get(self, request, pk):
+        
+        context = {}
+        post = get_object_or_404(Post.objects.filter(id=pk).values('title', 'author'))
+        author_name = get_object_or_404(CustomUser.objects.filter(id=post['author']))
+
+        context['post'] = post['title']
+        print(author_name)
+        context = {
+            'post' : {
+                'post_title' : post['title'],
+                'post_author' : author_name,
+            }
+        }
+        print(context)
+        if request.user == author_name:
+            print('You can delete')
+        else:
+            # Should be reworked
+            return HttpResponseRedirect(reverse('all-posts'))
+    
+        return render(request, 'posts/post_delete.html', context=context)
