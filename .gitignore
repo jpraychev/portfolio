@@ -7,3 +7,5 @@ accounts/migrations/*
 home/__pycache__/*
 home/migrations/*
 jraychev_website/__pycache__/*
+contacts/migrations/*
+contacts/__pycache__/*
