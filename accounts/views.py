@@ -51,6 +51,7 @@ class ProfileView(LoginRequiredMixin, TemplateView):
     login_url = reverse_lazy('login')
 
 class ProfileUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+
     model = CustomUser
     form_class = CustomUserChangeForm
     template_name = 'accounts/profile_update.html'
@@ -58,14 +59,16 @@ class ProfileUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     def test_func(self):
 
-        # get requested user from URL
-        regex = re.compile('(/accounts/)(\w+)(/update)')
-        m = regex.match(self.request.path)
-        requested_user = m.group(2)
+        # get requested user from URL using regex - OLD - can be removed
+        # regex = re.compile('(/accounts/)(\w+)(/update)')
+        # m = regex.match(self.request.path)
+        # requested_user = m.group(2)
         
-        if self.request.user.username == requested_user:
-            return True
-        return False
+        requested_user = self.kwargs['slug']
+
+        if not self.request.user.username == requested_user:
+            return False
+        return True
 
 class LoginView(LoginView):
 

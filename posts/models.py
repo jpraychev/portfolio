@@ -3,6 +3,7 @@ from django.utils import timezone
 from accounts.models import CustomUser
 from math import floor
 from PIL import Image
+from django.urls import reverse_lazy, reverse
 
 STATUS = (
     (0, 'Publish'),
@@ -33,6 +34,9 @@ class Post(models.Model):
     category = models.ForeignKey(Category, on_delete=models.DO_NOTHING)
     status = models.IntegerField(choices=STATUS, default=0)
     
+    def get_absolute_url(self):
+        return reverse('post-detail', kwargs={'pk': self.pk})
+
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         

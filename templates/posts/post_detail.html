@@ -7,7 +7,7 @@
     
     
     {% if request.user == object.author %}
-        <a href = ""> Update </a>
+        <a href = "{% url 'post-update' object.id %}"> Update </a>
         <a href = "{% url 'post-delete' object.id %}"> Delete </a>
     {% endif %}
     

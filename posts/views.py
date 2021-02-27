@@ -1,13 +1,14 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView, DetailView, RedirectView, CreateView, FormView, DeleteView
+from django.views.generic import TemplateView, ListView, DetailView, RedirectView, CreateView, FormView, DeleteView, UpdateView
 from django.urls import reverse_lazy, reverse
 from .models import Tag, Category, Post
 from accounts.models import CustomUser
 from django.shortcuts import get_object_or_404
 from django.core.paginator import Paginator
-from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import PostCreateForm
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from .forms import PostCreateForm, PostUpdateForm
 from django.http import HttpResponseRedirect
+from django.core.exceptions import PermissionDenied
 
 # Define private variables for views
 _PAGINATE_BY = 5
@@ -57,7 +58,6 @@ class TagView(ListView):
         tag_id = get_object_or_404(searched_tag)
 
         return Post.objects.filter(tags=tag_id, status=0)
-
 
 # FBV - passing url parameters
 def cat_view(request, cat_name):
@@ -135,6 +135,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 class PostDeleteView(LoginRequiredMixin, DeleteView):
+
     model = Post
     template_name = 'posts/post_delete.html'
     success_url = reverse_lazy('all-posts')
@@ -156,6 +157,23 @@ class PostDeleteView(LoginRequiredMixin, DeleteView):
         }
 
         if not self.request.user.username == author_name:
-            return HttpResponseRedirect(reverse('all-posts'))        
+            raise PermissionDenied       
 
         return render(request, 'posts/post_delete.html', context=context)
+
+class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    
+    model = Post
+    # fields = ['title', 'content', 'category']
+    template_name = 'posts/post_update.html'
+    form_class = PostUpdateForm
+
+    def test_func(self):
+
+        post_id = self.kwargs['pk']
+        post_author_id = get_object_or_404(Post.objects.filter(id=post_id).values('author'))
+        post_author_name =  get_object_or_404(CustomUser.objects.filter(id=post_author_id['author']).values_list('username', flat=True))
+
+        if not self.request.user.username == post_author_name:
+            return False
+        return True

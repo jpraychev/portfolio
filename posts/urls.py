@@ -5,7 +5,8 @@ from .views import PostsView, \
                     CategoryView, cat_view, \
                     PostCreateView, create_view, \
                     BeforePostCreateView, \
-                    PostDeleteView
+                    PostDeleteView, \
+                    PostUpdateView
 
 # from django.contrib.auth import views as auth_views
 
@@ -27,4 +28,5 @@ urlpatterns = [
     path('create/initial', BeforePostCreateView.as_view(), name='initial-post-create')  ,
 
     path('delete/<int:pk>', PostDeleteView.as_view(), name='post-delete'),
+    path('update/<int:pk>', PostUpdateView.as_view(), name='post-update'),
 ]
