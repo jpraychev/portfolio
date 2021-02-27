@@ -5,7 +5,7 @@
 {% block content %}
 
     <form method="post">{% csrf_token %}
-        <p>Are you sure you want to delete "{{ post.title }}"?</p>
+        <p>Are you sure you want to delete "{{ post.post_title }}"?</p>
 
         <input type="submit" value="Confirm">
     </form>

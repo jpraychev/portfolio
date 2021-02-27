@@ -142,22 +142,20 @@ class PostDeleteView(LoginRequiredMixin, DeleteView):
     def get(self, request, pk):
         
         context = {}
-        post = get_object_or_404(Post.objects.filter(id=pk).values('title', 'author'))
-        author_name = get_object_or_404(CustomUser.objects.filter(id=post['author']))
 
-        context['post'] = post['title']
-        print(author_name)
+        # Get post title and author. Author returns as interger because of ForeignKey
+        post = get_object_or_404(Post.objects.filter(id=pk).values('title', 'author'))
+        # Returns authors name to be used in template later on
+        author_name =  get_object_or_404(CustomUser.objects.filter(id=post['author']).values_list('username', flat=True))
+
         context = {
             'post' : {
                 'post_title' : post['title'],
-                'post_author' : author_name,
+                'post_author' : author_name, # No points of returning author's name to template
             }
         }
-        print(context)
-        if request.user == author_name:
-            print('You can delete')
-        else:
-            # Should be reworked
-            return HttpResponseRedirect(reverse('all-posts'))
-    
+
+        if not self.request.user.username == author_name:
+            return HttpResponseRedirect(reverse('all-posts'))        
+
         return render(request, 'posts/post_delete.html', context=context)

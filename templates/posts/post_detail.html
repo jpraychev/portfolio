@@ -4,6 +4,13 @@
 
 {% block content %}
     <p> {{ object.title }} by {{ object.author }}</p>
+    
+    
+    {% if request.user == object.author %}
+        <a href = ""> Update </a>
+        <a href = "{% url 'post-delete' object.id %}"> Delete </a>
+    {% endif %}
+    
     <p> Tags: 
         {% for tag in post.tags.all %}
             <a href = " {% url 'tag-view-cbv' tag.name %} "> {{ tag }}  </a>
@@ -16,4 +23,6 @@
     <img class="rounded-circle account-img" src="{{ user.profile_image.url }}">
     <p> About the author </p>
     <p> {{ object.author_bio }} </p>
+
+    
 {% endblock %}
