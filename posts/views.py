@@ -93,7 +93,7 @@ class CategoryView(ListView):
 def create_view(request):
     pass
 
-class BeforePostCreateView(FormView):
+class BeforePostCreateView(LoginRequiredMixin, FormView):
 
     template_name = 'posts/before_post_create.html'
     form_class = PostCreateForm
