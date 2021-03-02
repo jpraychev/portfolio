@@ -4,6 +4,12 @@
 
 {% block content %}
 
+{% if messages %}
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+{% endif %}
+
 <h2> Submit your message </h2>
 
 <form method="post">
