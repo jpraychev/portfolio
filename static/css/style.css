@@ -5,7 +5,7 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
 :root {
-    --main-color: rgb(242, 243, 247);;
+    --main-color: rgb(242, 243, 247);
 }
 
 body {
@@ -88,73 +88,39 @@ a:focus {
     text-align: center;
 }
 
-#sidebar ul.components {
-    padding: 20px 0;
-    border-bottom: 1px solid #47748b;
-}
-
-#sidebar ul p {
-    color: #fff;
-    padding: 10px;
-}
-
 #sidebar ul li a {
-    margin: auto;
-    width: 50%;
-    padding: 10px;
-    font-size: 1.1em;
-    display: block;
+    position: relative; 
+    display: inline-block;
+    padding: 10px;   
 }
 
-#sidebar ul li a:hover{
-    text-decoration: underline;
-}
-
-#sidebar ul li.active>a,
-a[aria-expanded="true"] {
-    color: #000;
-}
-
-a[data-toggle="collapse"] {
-    position: relative;
-}
-
-.dropdown-toggle::after {
-    display: block;
+#sidebar ul li a:after {
+    content: '';
     position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #0087ca;
+    transform-origin: bottom center;
+    transition: transform 0.25s ease-out;
 }
 
-ul ul a {
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
-    background: #6d7fcc;
+#sidebar ul li a:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom center;
 }
 
-ul.CTAs {
-    padding: 20px;
+#sidebar ul li a.active:after {
+    transform: scaleX(1);
+    transform-origin: bottom center;
 }
 
-ul.CTAs a {
-    text-align: center;
-    font-size: 0.9em !important;
-    display: block;
-    border-radius: 5px;
-    margin-bottom: 5px;
-}
-
-a.download {
-    background: #fff;
-    color: #7386D5;
-}
-
-a.article,
-a.article:hover {
-    background: #6d7fcc !important;
-    color: #fff !important;
-}
+/* #sidebar ul li a.active {
+    border-bottom: 2px solid;
+    border-color: red; 
+} */
 
 /* 
     Image is resized by the backend when uploaded.
@@ -168,13 +134,11 @@ a.article:hover {
 }
 
 .name {
-/* To DO */
-
+    font-size: 1.1em;
 }
 
 .profession {
-/* TO DO */
-/* It should be on one line */
+    font-size: 1em;
 }
 
 /* ---------------------------------------------------
