@@ -19,7 +19,7 @@ class CustomUser(AbstractUser):
         img = Image.open(self.profile_image.path)
 
         if img.height > 300 or img.width > 300:
-            output_size = (300, 300)
+            output_size = (150, 150)
             img.thumbnail(output_size)
             img.save(self.profile_image.path)
 
