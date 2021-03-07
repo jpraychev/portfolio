@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title> {% block title %} {% endblock %}</title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <!-- BS4 -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <!-- Custom -->
@@ -16,7 +16,7 @@
     <body>
         <div class="wrapper">
             <!-- Sidebar  -->
-            <nav id="sidebar">
+            <nav id="sidebar" class = "active">
                 <div class="sidebar-header">
                     <img class="rounded-circle profile-img" src="{{ user.profile_image.url }}"/>
                     <a class="name" href = "{% url 'index' %}"> Jordan Raychev </a>
@@ -38,12 +38,16 @@
             <!-- Page Content  -->
             <div id="content">
     
+                <div id="sidebarCollapse">
+                    <i class="arrow left"></i>
+                </div>
+<!--                 
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <div class="container-fluid">
     
-                        <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <button type="button" id="sidebarCollapse" > class="btn btn-info"
                             <i class="fas fa-align-left"></i>
-                            <span>Toggle Sidebar</span>
+                            <span> > </span>
                         </button>
                         <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <i class="fas fa-align-justify"></i>
@@ -66,7 +70,7 @@
                             </ul>
                         </div>
                     </div>
-                </nav>
+                </nav> -->
                 
                 {% block content %}
 

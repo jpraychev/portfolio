@@ -66,12 +66,13 @@ a:focus {
     max-width: 250px;
     background: #7386D5;
     color: #000;
-    transition: all 0.3s;
+    transition: all 0.75s;
     background-color: var(--main-color);
+    margin-left: -250px;
 }
 
 #sidebar.active {
-    margin-left: -250px;
+    margin-left: 0px;
 }
 
 #sidebar .sidebar-header {
@@ -110,17 +111,13 @@ a:focus {
 #sidebar ul li a:hover:after {
     transform: scaleX(1);
     transform-origin: bottom center;
+    cursor: pointer;
 }
 
 #sidebar ul li a.active:after {
     transform: scaleX(1);
     transform-origin: bottom center;
 }
-
-/* #sidebar ul li a.active {
-    border-bottom: 2px solid;
-    border-color: red; 
-} */
 
 /* 
     Image is resized by the backend when uploaded.
@@ -139,6 +136,39 @@ a:focus {
 
 .profession {
     font-size: 1em;
+} 
+
+#sidebarCollapse{
+    width: 40px;
+    height: 40px;
+    background-color: var(--main-color);
+    /* background-color: red; */
+    position: relative;
+    transform: rotate(-45deg);
+    margin-left: -40px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    position: absolute;
+    bottom: 9px;
+    right: 9px;
+}
+
+.right {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+
+}
+
+.left {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
 }
 
 /* ---------------------------------------------------
@@ -156,14 +186,11 @@ a:focus {
     MEDIAQUERIES
 ----------------------------------------------------- */
 
-@media (max-width: 768px) {
+/* @media (min-width: 768px) {
     #sidebar {
-        margin-left: -250px;
+        margin-left: 0px;
     }
     #sidebar.active {
-        margin-left: 0;
+        margin-left: -250px;
     }
-    #sidebarCollapse span {
-        display: none;
-    }
-}
+} */
