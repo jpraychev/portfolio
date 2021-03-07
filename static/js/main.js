@@ -3,24 +3,30 @@ $(document).ready(function () {
         $('#sidebar').toggleClass('active');
         $('.arrow').toggleClass('left right');
     });
-
-    if ( $(document).width() > 768 ) {
-    } else {
+    
+    const removeActive = () => {
         $('#sidebar').removeClass('active')
-        $('.arrow').toggleClass('left right')
+        $('.arrow').removeClass('left').addClass('right')
     }
 
-    $(window).on("resize", function(event){
-        width = $(this).width();
+    const addActive = () => {
+        $('#sidebar').addClass('active')
+        $('.arrow').removeClass('right').addClass('left')
+    }
 
-        if ( width > 768 ) {
-            $('#sidebar').addClass('active')
-            $('.arrow').removeClass('right')
-            $('.arrow').addClass('left')
-        } else {
-            $('#sidebar').removeClass('active')
-            $('.arrow').removeClass('left')
-            $('.arrow').addClass('right')    
-        }
+    const checkWidth = (width) => {
+        return width > 768 ? true : false;
+    }
+    
+    if ( checkWidth($(document).width()) == false ) {
+        removeActive()
+    }
+
+    $(window).on("resize", function() {
+
+        width = $(this).width();
+    
+        checkWidth(width) ? addActive() : removeActive();
+        
     });
 });
