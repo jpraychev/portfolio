@@ -36,6 +36,7 @@ a:focus {
     border-radius: 0;
     margin-bottom: 40px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    height: 70px;
 }
 
 .navbar-btn {
@@ -75,9 +76,7 @@ a:focus {
     margin-left: 0px;
 }
 
-#sidebar .sidebar-header {
-    /* padding: 20px; */
-    /* padding: #top #right #bottom #left */
+.sidebar-header {
     padding: 30px 50px 30px 50px;
     background-color: var(--main-color);
     text-align: center;
@@ -89,13 +88,19 @@ a:focus {
     text-align: center;
 }
 
-#sidebar ul li a {
+#loggedin {
+    padding-left: 0px;
+}
+
+#sidebar ul li a,
+.main-navbar li a {
     position: relative; 
     display: inline-block;
     padding: 10px;   
 }
 
-#sidebar ul li a:after {
+#sidebar ul li a:after,
+.main-navbar li a:after {
     content: '';
     position: absolute;
     width: 100%;
@@ -108,17 +113,18 @@ a:focus {
     transition: transform 0.25s ease-out;
 }
 
-#sidebar ul li a:hover:after {
+#sidebar ul li a:hover:after,
+.main-navbar li a:hover:after  {
     transform: scaleX(1);
     transform-origin: bottom center;
     cursor: pointer;
 }
 
-#sidebar ul li a.active:after {
+#sidebar ul li a.active:after,
+.main-navbar li a.active:after {
     transform: scaleX(1);
     transform-origin: bottom center;
 }
-
 /* 
     Image is resized by the backend when uploaded.
     In case that the image is bigger resize it to
@@ -139,15 +145,20 @@ a:focus {
 } 
 
 #sidebarCollapse{
-    width: 40px;
+    min-width: 40px;
     height: 40px;
     background-color: var(--main-color);
     /* background-color: red; */
     position: relative;
     transform: rotate(-45deg);
-    margin-left: -40px;
+    margin-left: -20px;
+    margin-top: 35px;
     border-bottom-right-radius: 5px;
     border-top-left-radius: 5px;
+}
+
+#sidebarCollapse:hover {
+    cursor: pointer;
 }
 
 .arrow {
@@ -163,7 +174,6 @@ a:focus {
 .right {
     transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
-
 }
 
 .left {
@@ -186,11 +196,13 @@ a:focus {
     MEDIAQUERIES
 ----------------------------------------------------- */
 
-/* @media (min-width: 768px) {
-    #sidebar {
-        margin-left: 0px;
+@media (max-width: 992px) {
+
+    .navbar {
+        height: inherit;
     }
-    #sidebar.active {
-        margin-left: -250px;
+
+    #loggedin {
+        padding-left: 10px;
     }
-} */
+} 
