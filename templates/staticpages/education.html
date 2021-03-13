@@ -1,0 +1,66 @@
+{% extends 'home/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %} Education {% endblock %}
+
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+{% endif %}
+
+
+<div class = "row">
+    <div class = "col-sm-12">
+        <span class="heading-meta">Education</span>
+        <h2 class="heading">Education</h2>
+    </div>
+</div>
+<div class = "container-fluid timeline-container">
+    <div class="row">
+        <div class=" timeline-circle rounded-circle">
+            <i class="education-cap fas fa-graduation-cap"></i>
+        </div>
+        <div class = "timeline-box">
+            <h4>Doctor of Philosophy (PhD) <span>2016 - 2019</span></h4> 
+            <p> 
+                Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. 
+                Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.
+                Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. 
+                Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class=" timeline-circle rounded-circle">
+            <i class="education-cap fas fa-graduation-cap"></i>
+        </div>
+        <div class = "timeline-box">
+            <h4>Doctor of Philosophy (PhD) <span>2016 - 2019</span></h4> 
+            <p> 
+                Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. 
+                Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.
+                Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. 
+                Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class=" timeline-circle-last rounded-circle">
+            <i class="education-cap fas fa-graduation-cap "></i>
+        </div>
+        <div class = "timeline-box">
+            <h4>Doctor of Philosophy (PhD) <span>2016 - 2019</span></h4> 
+            <p> 
+                Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. 
+                Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.
+                Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. 
+                Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

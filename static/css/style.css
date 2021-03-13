@@ -6,6 +6,7 @@
 
 :root {
     --main-color: rgb(242, 243, 247);
+    --main-color-darker: rgb(230, 230, 230);
 }
 
 body {
@@ -253,6 +254,72 @@ a:focus {
     right: -5%;
 }
 
+
+/* EDUCATION PAGE */
+
+.timeline-box {
+	width: 762px;
+	background-color: var(--main-color);
+	padding: 1.5em;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 0px 5px -4px rgba(0, 0, 0, 1);
+	margin-bottom: 1em;
+}
+
+.timeline-box h4 {
+    font-size: 1.25em;
+    font-weight: 400;
+}
+
+.timeline-box h4 span {
+    padding-left: 10px;
+    opacity: 0.5;
+    font-size: 0.75em;
+}
+
+.timeline-box p {
+    font-size: 1em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    color:rgba(0, 0, 0, 0.5)
+}
+
+.timeline-circle,
+.timeline-circle-last {
+    width: 50px;
+    height: 50px;
+    background-color: #2c98f0;
+    margin-right: 35px;
+    text-align: center;
+    line-height: 47px;
+    border: 3px solid var(--main-color-darker);
+    position: relative;
+}
+
+.timeline-circle-last {
+    /* TO DO */
+}
+
+.timeline-container {
+    position: relative;
+}
+
+.timeline-container:before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 4px;
+    /* background: #f2f3f7; */
+    background-color: red;
+    margin-left: 7.5px;
+    height: 100%;
+}
+
+
+.education-cap {
+    font-size: 1.25em;
+    color: white;
+}
 
 /* ---------------------------------------------------
     MEDIAQUERIES

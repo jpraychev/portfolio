@@ -13,6 +13,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
         <!-- Custom -->
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <!-- Fontawesome icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
 
     </head>
     <body>
@@ -29,11 +31,11 @@
                     <li><a href="#" data-nav-section="about">About</a></li>
                     <li><a href="#" data-nav-section="services">Services</a></li>
                     <li><a href="#" data-nav-section="skills">Skills</a></li>
-                    <li><a href="#" data-nav-section="education">Education</a></li>
+                    <li><a class = "{% if request.path == '/pages/education/' %} active {% endif %}" href="{% url 'education' %}" data-nav-section="education">Education</a></li>
                     <li><a href="#" data-nav-section="experience">Experience</a></li>
                     <li><a href="#" data-nav-section="work">Work</a></li>
                     <li><a href="#" data-nav-section="blog">Blog</a></li>
-                    <li><a class = "{% if request.path == '/contact/' %} active {% endif %}" href="{% url 'contact' %}"data-nav-section="contact">Contact</a></li>
+                    <li><a class = "{% if request.path == '/contact/' %} active {% endif %}" href="{% url 'contact' %}" data-nav-section="contact">Contact</a></li>
                 </ul>
             </nav>
             <div id="sidebarCollapse">
