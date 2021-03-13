@@ -24,6 +24,7 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('posts/', include('posts.urls')),
     path('contact/', include('contact.urls')),
+    path('pages/', include('staticpages.urls')),
 ]
 
 if settings.DEBUG:

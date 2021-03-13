@@ -1,4 +1,5 @@
 # db.sqlite3
+jraychev_website/settings.py
 manage.py
 posts/__pycache__/*
 posts/migrations/*
@@ -9,3 +10,5 @@ home/migrations/*
 jraychev_website/__pycache__/*
 contact/__pycache__/*
 contact/migrations/*
+staticpages/migrations*
+staticpages/__pycache__/*
