@@ -216,6 +216,7 @@ a:focus {
     visibility: hidden;
 } */
 
+/* Contact page form */
 .controls input, textarea {
     width: 500px;
     padding: 10px;
@@ -223,6 +224,35 @@ a:focus {
     border: 1px solid var(--main-color);
     background-color: var(--main-color);
 }
+
+/* Contact page form */
+.social-box {
+    width: 75px;
+    height: 75px;
+    background-color: var(--main-color);
+    margin-bottom: 10px;
+}
+
+.social-icons {
+    width:2em;
+    height:2em;
+}
+
+.social-text {
+    padding-left: 20px;
+}
+
+.social-box-animate .row {
+    position: relative;
+    opacity: 0; 
+    left: -10%;
+}
+
+.contact-form-animate {
+    opacity: 0;
+    right: -10%;
+}
+
 
 /* ---------------------------------------------------
     MEDIAQUERIES

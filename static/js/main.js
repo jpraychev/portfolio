@@ -20,6 +20,28 @@ $(document).ready(function () {
     });
     
     checkWidth($(document).width()) ? '' : removeActive();
+
+    $(".social-box-animate .row" ).each( function () {
+        setTimeout(function(){ alert("Hello"); }, 3000);
+    });
+    
+
+    // $(this).animate({
+    //     left: "0%",
+    //     opacity: "1"
+    // }, 750 );
+
+    // animate({
+    //     left: "0%",
+    //     opacity: "1"
+    // }, 750 );
+
+    $(".contact-form-animate" ).animate({
+        right: "0%",
+        opacity: "1"
+    }, 750 );
+    
+
 });
 
 $(window).on("resize", function() {
@@ -28,3 +50,4 @@ $(window).on("resize", function() {
     checkWidth(width) ? addActive() : removeActive();
 
 });
+
