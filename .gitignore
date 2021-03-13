@@ -1,4 +1,5 @@
 # db.sqlite3
+.vscode/settings.json
 jraychev_website/settings.py
 manage.py
 posts/__pycache__/*
