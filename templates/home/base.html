@@ -32,7 +32,7 @@
                     <li><a href="#" data-nav-section="services">Services</a></li>
                     <li><a href="#" data-nav-section="skills">Skills</a></li>
                     <li><a class = "{% if request.path == '/pages/education/' %} active {% endif %}" href="{% url 'education' %}" data-nav-section="education">Education</a></li>
-                    <li><a href="#" data-nav-section="experience">Experience</a></li>
+                    <li><a class = "{% if request.path == '/pages/experience/' %} active {% endif %}" href="{% url 'experience' %}" data-nav-section="experience">Experience</a></li>
                     <li><a href="#" data-nav-section="work">Work</a></li>
                     <li><a href="#" data-nav-section="blog">Blog</a></li>
                     <li><a class = "{% if request.path == '/contact/' %} active {% endif %}" href="{% url 'contact' %}" data-nav-section="contact">Contact</a></li>

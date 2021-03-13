@@ -277,6 +277,7 @@ a:focus {
 	margin-bottom: 1em;
     opacity: 0;
     margin-left: 10%;
+    position: relative;
 }
 
 .timeline-box h4 {
@@ -351,6 +352,17 @@ a:focus {
 .fadeInUp-3 {
     background-color: var(--blue-color);
 }
+
+/* EXPERIENCE PAGE */
+.experience h4::before {
+    content: '';
+    background-color: red;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 35px;
+}
+
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
@@ -369,10 +381,9 @@ a:focus {
         margin-left: -15px;
     }
 
-    .timeline-circle {
-        visibility: hidden;
-    }
+    .timeline-circle,
     .timeline-container:before {
         visibility: hidden;
+        margin-bottom: -50px;
     }
 } 
