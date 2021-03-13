@@ -242,15 +242,15 @@ a:focus {
     padding-left: 20px;
 }
 
-.social-box-animate .row {
-    position: relative;
+.social-box-animate {
+    /* position: relative; */
     opacity: 0; 
-    left: -10%;
+    left: -5%;
 }
 
 .contact-form-animate {
     opacity: 0;
-    right: -10%;
+    right: -5%;
 }
 
 
@@ -266,5 +266,9 @@ a:focus {
 
     #loggedin {
         padding-left: 10px;
+    }
+
+    .contact-form-animate {
+        margin-left: -15px;
     }
 } 

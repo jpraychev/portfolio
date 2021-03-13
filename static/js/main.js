@@ -14,38 +14,33 @@ const checkWidth = (width) => {
 }
 
 $(document).ready(function () {
+
+    // Toggles sidebar
     $('#sidebarCollapse').on('click', function () {
         $('#sidebar').toggleClass('active');
         $('.arrow').toggleClass('left right');
     });
     
+    // Checks if width is bigger than 768 px
     checkWidth($(document).width()) ? '' : removeActive();
 
-    $(".social-box-animate .row" ).each( function () {
-        setTimeout(function(){ alert("Hello"); }, 3000);
-    });
-    
+    // Renders social box on contact page
+    $('.social-box-animate').animate({ 
+        left: '0%',
+        opacity: '1'
+    }, 750 );
 
-    // $(this).animate({
-    //     left: "0%",
-    //     opacity: "1"
-    // }, 750 );
-
-    // animate({
-    //     left: "0%",
-    //     opacity: "1"
-    // }, 750 );
-
-    $(".contact-form-animate" ).animate({
-        right: "0%",
-        opacity: "1"
+    // Renders contact form on contact page
+    $('.contact-form-animate').animate({ 
+        right: '0%',
+        opacity: '1'
     }, 750 );
     
-
 });
 
-$(window).on("resize", function() {
-
+// Hides or shows the sidebar based on size of window
+$(window).on('resize', function() {
+    
     width = $(this).width();
     checkWidth(width) ? addActive() : removeActive();
 
