@@ -35,7 +35,22 @@ $(document).ready(function () {
         right: '0%',
         opacity: '1'
     }, 750 );
+
+    for (let i=1; i<4; i++) {
+        var delaySeconds = 500+i*450;
+
+        $('.fadeInUp-'+ i +'').animate({
+            'bottom': '0'
+        }, delaySeconds );
+
+        $('.fadeInRight-'+ i +'').animate({ 
+            'margin-left': '0%',
+            'opacity': '1'
+        }, delaySeconds );
+    };
+
     
+
 });
 
 // Hides or shows the sidebar based on size of window
