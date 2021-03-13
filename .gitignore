@@ -11,5 +11,5 @@ home/migrations/*
 jraychev_website/__pycache__/*
 contact/__pycache__/*
 contact/migrations/*
-staticpages/migrations*
-staticpages/__pycache__/*
+# staticpages/migrations*
+# staticpages/__pycache__/*
