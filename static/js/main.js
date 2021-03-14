@@ -49,8 +49,20 @@ $(document).ready(function () {
         }, delaySeconds );
     };
 
-    
+    $('.experience').on('click', function () {
+        $(this).toggleClass('updown');
+    });
 
+    // $('.fadeInLeft').animate({
+    //     // 'margin-left': '0%',
+    //     opacity: '1'
+    // }, 1000 );
+
+    // $('.fadeInRight').animate({
+    //     // 'margin-right': '34%',
+    //     opacity: '1'
+    // }, 1000 );
+    
 });
 
 // Hides or shows the sidebar based on size of window
