@@ -10,5 +10,12 @@ home/migrations/*
 jraychev_website/__pycache__/*
 contact/__pycache__/*
 contact/migrations/*
+<<<<<<< HEAD
 staticpages/__pycache__/*
 staticpages/migrations/*
+=======
+.vscode/settings.json
+jraychev_website/settings.py
+# staticpages/migrations*
+# staticpages/__pycache__/*
+>>>>>>> b0b7263b103be0f7097010ab604f8075bf3e86da

@@ -1,0 +1,44 @@
+{% extends 'home/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %} Experience {% endblock %}
+
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+{% endif %}
+
+
+<div class = "row">
+    <div class = "col-sm-12">
+        <span class="heading-meta">Experience</span>
+        <h2 class="heading">Experience</h2>
+    </div>
+</div>
+<div class = "container-fluid timeline-container">
+    <div class="accordion" id="accordionExample">
+        <div class="row">
+            <div class=" timeline-circle rounded-circle fadeInUp-2">
+                <i class="education-cap fas fa-graduation-cap"></i>
+            </div>
+            <div class = "timeline-box experience fadeInRight-1">
+                <h4 data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Dianel, Ltd. <span> 2020 - {% now "Y" %}</span>
+                </h4>
+                <p id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
+                    3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. 
+                    Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. 
+                    Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. 
+                    Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth 
+                    nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </p>      
+            </div>
+        </div>
+      </div>
+</div>
+{% endblock %}

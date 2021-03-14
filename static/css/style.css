@@ -7,6 +7,13 @@
 :root {
     --main-color: rgb(242, 243, 247);
     --main-color-darker: rgb(230, 230, 230);
+    --blue-color: #2c98f0;
+    --white-color: #ffffff;
+    --red-color: #ec5453;
+    --yellow-color: #f9bf3f;
+    --green-color: #2fa499;
+    --purple-color: #a84cb8;
+    --border-color: rgba(0, 0, 0, 0.1);
 }
 
 body {
@@ -32,11 +39,11 @@ a:focus {
 
 .navbar {
     padding: 15px 10px;
-    background: #fff;
+    background-color: var(--main-color);
     border: none;
     border-radius: 0;
     margin-bottom: 40px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 3px var(--border-color);
     height: 70px;
 }
 
@@ -109,7 +116,8 @@ a:focus {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #0087ca;
+    /* background-color: #0087ca; */
+    background-color: var(--blue-color);
     transform-origin: bottom center;
     transition: transform 0.25s ease-out;
 }
@@ -224,6 +232,8 @@ a:focus {
     margin-bottom: 10px;
     border: 1px solid var(--main-color);
     background-color: var(--main-color);
+    border: 1px solid var(--border-color);
+	box-shadow: 0px 0px 5px -4px var(--border-color);
 }
 
 /* Contact page form */
@@ -232,6 +242,8 @@ a:focus {
     height: 75px;
     background-color: var(--main-color);
     margin-bottom: 10px;
+    border: 1px solid var(--border-color);
+	box-shadow: 0px 0px 5px -4px var(--border-color);
 }
 
 .social-icons {
@@ -254,7 +266,6 @@ a:focus {
     right: -5%;
 }
 
-
 /* EDUCATION PAGE */
 
 .timeline-box {
@@ -264,6 +275,9 @@ a:focus {
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	box-shadow: 0px 0px 5px -4px rgba(0, 0, 0, 1);
 	margin-bottom: 1em;
+    opacity: 0;
+    margin-left: 10%;
+    position: relative;
 }
 
 .timeline-box h4 {
@@ -281,23 +295,20 @@ a:focus {
     font-size: 1em;
     margin-top: 1em;
     margin-bottom: 0.5em;
-    color:rgba(0, 0, 0, 0.5)
+    color:rgba(0, 0, 0, 0.5);
 }
 
-.timeline-circle,
-.timeline-circle-last {
+.timeline-circle {
     width: 50px;
     height: 50px;
-    background-color: #2c98f0;
+    background-color: var(--blue-color);
     margin-right: 35px;
     text-align: center;
     line-height: 47px;
     border: 3px solid var(--main-color-darker);
     position: relative;
-}
-
-.timeline-circle-last {
-    /* TO DO */
+    margin-bottom: 50px;
+    bottom: -500px;
 }
 
 .timeline-container {
@@ -309,16 +320,47 @@ a:focus {
     position: absolute;
     display: block;
     width: 4px;
-    /* background: #f2f3f7; */
-    background-color: red;
+    background-color: var(--main-color);
     margin-left: 7.5px;
     height: 100%;
 }
 
+/* If you want to add a final circle in the timeline uncomment this class */
+/* .timeline-container:after {
+    position: absolute;
+    content: '';
+    width: 50px;
+    height: 50px;
+    border: 3px solid var(--main-color-darker);
+    background-color: var(--blue-color);
+    bottom: 0;
+    border-radius: 50% !important;
+    margin-left: -15px;
+} */
 
 .education-cap {
     font-size: 1.25em;
-    color: white;
+    color: var(--white-color);
+}
+
+.fadeInUp-1 {
+    background-color: var(--red-color);
+}
+.fadeInUp-2 {
+    background-color: var(--green-color);
+}
+.fadeInUp-3 {
+    background-color: var(--blue-color);
+}
+
+/* EXPERIENCE PAGE */
+.experience h4::before {
+    content: '';
+    background-color: red;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 35px;
 }
 
 /* ---------------------------------------------------
@@ -337,5 +379,11 @@ a:focus {
 
     .contact-form-animate {
         margin-left: -15px;
+    }
+
+    .timeline-circle,
+    .timeline-container:before {
+        visibility: hidden;
+        margin-bottom: -50px;
     }
 } 

@@ -6,3 +6,6 @@ from django.contrib.messages.views import SuccessMessageMixin
 
 class EducationView(TemplateView):
     template_name = 'staticpages/education.html'
+
+class ExperienceView(TemplateView):
+    template_name = 'staticpages/experience.html'
