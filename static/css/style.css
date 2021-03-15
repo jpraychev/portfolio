@@ -388,12 +388,21 @@ a:focus {
     background-color: var(--blue-color);
 }
 
+/* ABOUT PAGE */
+
+.container-text {
+	margin-bottom: 1em;
+    opacity: 1;
+    position: relative;
+    width: 50%;
+    float: left;
+}
 
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
 
-@media (max-width: 768) {
+@media (max-width: 768px) {
 
     .navbar {
         height: inherit;
@@ -405,5 +414,9 @@ a:focus {
 
     .contact-form-animate {
         margin-left: -15px;
-    }    
+    }
+
+    .container-text {
+        width: 95%;
+    }  
 } 

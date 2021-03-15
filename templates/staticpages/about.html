@@ -1,0 +1,32 @@
+{% extends 'home/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %} Education {% endblock %}
+
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+{% endif %}
+
+
+<div class = "row">
+    <div class = "col-sm-12">
+        <span class="heading-meta">About</span>
+        <h2 class="heading">Who Am I</h2>
+    </div>
+</div>
+<div class = "container-fluid">
+    <div class="row">
+        <div class = "container-text">
+            <p> 
+                Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. 
+                Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

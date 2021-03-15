@@ -9,3 +9,6 @@ class EducationView(TemplateView):
 
 class ExperienceView(TemplateView):
     template_name = 'staticpages/experience.html'
+
+class AboutView(TemplateView):
+    template_name = 'staticpages/about.html'
