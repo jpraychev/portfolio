@@ -14,12 +14,13 @@
     --green-color: #2fa499;
     --purple-color: #a84cb8;
     --border-color: rgba(0, 0, 0, 0.1);
-    --black-color: rgba(0,0,0)
+    --black-color: rgba(0,0,0);
+    --p-color: rgba(0, 0, 0, 0.5);
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: #fafafa;
+    background: var(--white-color);
 }
 
 p {
@@ -27,7 +28,7 @@ p {
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
-    color: #999;
+    color: var(--p-color);
 }
 
 a,
@@ -75,7 +76,7 @@ a:focus {
     min-width: 250px;
     max-width: 250px;
     background: #7386D5;
-    color: #000;
+    color: var(--black-color);
     transition: all 0.75s;
     background-color: var(--main-color);
     margin-left: -250px;
@@ -117,7 +118,6 @@ a:focus {
     height: 2px;
     bottom: 0;
     left: 0;
-    /* background-color: #0087ca; */
     background-color: var(--blue-color);
     transform-origin: bottom center;
     transition: transform 0.25s ease-out;
@@ -171,7 +171,7 @@ a:focus {
 }
 
 .arrow {
-    border: solid black;
+    border: solid var(--black-color);
     border-width: 0 3px 3px 0;
     display: inline-block;
     padding: 3px;
@@ -206,7 +206,7 @@ a:focus {
     display: block;
     font-size: 10px;
     text-transform: uppercase;
-    color: #999999;
+    color: var(--p-color);
     font-weight: 500;
     letter-spacing: 5px;
 }
@@ -288,6 +288,12 @@ a:focus {
     font-weight: 400;
 }
 
+.timeline-box h3 {
+    font-size: 1em;
+    font-weight: 400;
+    color: var(--p-color);
+}
+
 .timeline-box h4 span,
 .timeline-panel h4 span {
     padding-left: 10px;
@@ -295,12 +301,11 @@ a:focus {
     font-size: 0.75em;
 }
 
-.timeline-box p,
-.timeline-panel p {
+.timeline-box p {
     font-size: 1em;
     margin-top: 1em;
     margin-bottom: 0.5em;
-    color:rgba(0, 0, 0, 0.5);
+    color: var(--p-color);
 }
 
 .timeline-circle {
@@ -344,7 +349,7 @@ a:focus {
     margin-left: -15px;
 } */
 
-.education-cap {
+.timeline-icon {
     font-size: 1.25em;
     color: var(--white-color);
 }
@@ -363,6 +368,8 @@ a:focus {
     padding: 3px;
     margin-top: 5px;
     transform: rotate(45deg);
+}
+.experience h4 {
     cursor: pointer;
 }
 
@@ -381,10 +388,6 @@ a:focus {
     background-color: var(--blue-color);
 }
 
-.work-icon {
-    width: 1em;
-    height: 1em;
-}
 
 /* ---------------------------------------------------
     MEDIAQUERIES

@@ -37,7 +37,7 @@ $(document).ready(function () {
     }, 750 );
 
     for (let i=1; i<4; i++) {
-        var delaySeconds = 500+i*450;
+        var delaySeconds = 750+i*450;
 
         $('.fadeInUp-'+ i +'').animate({
             'bottom': '0'
@@ -52,17 +52,6 @@ $(document).ready(function () {
     $('.experience').on('click', function () {
         $(this).toggleClass('updown');
     });
-
-    // $('.fadeInLeft').animate({
-    //     // 'margin-left': '0%',
-    //     opacity: '1'
-    // }, 1000 );
-
-    // $('.fadeInRight').animate({
-    //     // 'margin-right': '34%',
-    //     opacity: '1'
-    // }, 1000 );
-    
 });
 
 // Hides or shows the sidebar based on size of window
