@@ -1,0 +1,41 @@
+{% extends 'home/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %} Services {% endblock %}
+
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+{% endif %}
+
+
+<div class = "row">
+    <div class = "col-sm-12">
+        <span class="heading-meta">Services</span>
+        <h2 class="heading">What I Do</h2>
+    </div>
+</div>
+<div class = "container-fluid">
+    <div class="row">
+        <div class = "sm-3">
+            <div class = 'service-box'>
+
+            </div>
+        </div>
+        <div class = "sm-3">
+            <div class = 'service-box'>
+
+            </div>
+        </div>
+        <div class = "sm-3">
+            <div class = 'service-box'>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

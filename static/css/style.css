@@ -391,11 +391,18 @@ a:focus {
 /* ABOUT PAGE */
 
 .container-text {
+    font-size: 1em;
 	margin-bottom: 1em;
-    opacity: 1;
     position: relative;
     width: 50%;
     float: left;
+}
+
+
+/* SERVICES PAGE */
+
+.service-box {
+
 }
 
 /* ---------------------------------------------------

@@ -12,3 +12,6 @@ class ExperienceView(TemplateView):
 
 class AboutView(TemplateView):
     template_name = 'staticpages/about.html'
+
+class ServicesView(TemplateView):
+    template_name = 'staticpages/services.html'
