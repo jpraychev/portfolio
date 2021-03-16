@@ -16,6 +16,8 @@
     --border-color: rgba(0, 0, 0, 0.1);
     --black-color: rgba(0,0,0);
     --p-color: rgba(0, 0, 0, 0.5);
+    --box-shadow: rgba(0, 0, 0, 0.2);
+    --black-075: rgba(0, 0, 0, 0.75);
 }
 
 body {
@@ -401,8 +403,41 @@ a:focus {
 
 /* SERVICES PAGE */
 
-.service-box {
+.service-row {
+    margin-left: -30px;
+}
 
+.service-box {
+    background-color: var(--white-color);
+    padding: 30px;
+    box-shadow: 0px 0px 56px -8px var(--box-shadow);
+    margin-top: 50px;
+}
+
+.service-headline {
+    text-align: center;
+    font-size: 1.5em;
+}
+.service-headline p {
+    color: var(--black-075);
+    font-weight: 600;
+    margin-top: 50px;
+}
+
+.service-icon {
+    padding: 5px;
+    font-size: 2.5em;
+    text-align: center;
+    position: absolute;
+    color: var(--white-color);
+    background-color: var(--red-color);
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
+    margin-bottom: 20px;
+    margin-left: -30px;
+    top: 0;
+    /* left: 50%; */
 }
 
 /* ---------------------------------------------------
@@ -425,5 +460,5 @@ a:focus {
 
     .container-text {
         width: 95%;
-    }  
+    }
 } 
