@@ -49,6 +49,11 @@ $(document).ready(function () {
         }, delaySeconds );
     };
 
+    // Renders social box on contact page
+    $('.service-box').animate({ 
+        opacity: '1'
+    }, 1000 );
+
     $('.experience').on('click', function () {
         $(this).toggleClass('updown');
     });

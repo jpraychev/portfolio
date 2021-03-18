@@ -15,3 +15,6 @@ class AboutView(TemplateView):
 
 class ServicesView(TemplateView):
     template_name = 'staticpages/services.html'
+
+class SkillsView(TemplateView):
+    template_name = 'staticpages/skills.html'
