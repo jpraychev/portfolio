@@ -49,6 +49,12 @@ $(document).ready(function () {
         }, delaySeconds );
     };
 
+    jQuery.each( $('.progress-box'), function() {
+        skillPercent = $(this).find('.skill-percent').text();
+        console.log(skillPercent)
+        $(this).find('.progress-active').css("width", skillPercent)
+    });
+
     // Renders social box on contact page
     $('.service-box').animate({ 
         opacity: '1'

@@ -396,7 +396,7 @@ a:focus {
     font-size: 1em;
 	margin-bottom: 1em;
     position: relative;
-    width: 50%;
+    width: 75%;
     float: left;
 }
 
@@ -452,16 +452,83 @@ a:focus {
     transform: rotate(-45deg);
 }
 
+/* SKILLS PAGE */
+.progress-full {
+    height: 6px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background: var(--main-color);
+    overflow: visible;
+    border-radius: 5px;
+}
 
+
+.progress-active {
+    background: var(--blue-color);
+    width: 0%;
+    height: 100%;
+    border-radius: 5px;
+    position: relative;
+    transition-property: width;
+    transition-duration: 3s;
+}
+
+/* .progress-active-animation {
+    width: 75%;
+} */
+
+.progress-active::before{
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: -2px;
+    border-radius: 10px;
+    left: 98%;
+    background-color: var(--blue-color);
+}
+
+.progress-active span {
+    position: absolute;
+    left: 98%;
+    top: -25px;
+}
+
+.progress-row {
+    margin-left: -30px;
+    width: 75%
+}
+
+.progress-box {
+    margin-bottom: 20px;
+}
+
+.progress-box .flex-box span {
+    font-size: 0.85em;
+    font-weight: 400;
+    color: var(--p-color);
+}
+
+.flex-box {
+    margin-bottom:5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* .floatLeft {
+    margin-left: -20px;
+} */
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
 
-@media (max-width: 768px) {
-
+@media (max-width: 1000px) {
     .navbar {
         height: inherit;
     }
+}
+
+@media (max-width: 768px) {
 
     #loggedin {
         padding-left: 10px;
@@ -475,7 +542,9 @@ a:focus {
         width: 95%;
     }
 }
+
 @media (min-width: 1200px) {
+
     .col-xl-3 {
         max-width: 100%;
     }
