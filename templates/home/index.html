@@ -1,17 +1,32 @@
 {% extends 'home/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
 
-{% block title %} Home page {% endblock %}
+{% block title %} Home {% endblock %}
 
 {% block content %}
-    <!-- {% if user.is_authenticated %}
-    Hi {{ user.username }}!
-    <p><a href="{% url 'logout' %}">Log Out</a></p>
-    <p><a href="{% url 'profile' %}">Profile</a></p>
-    {% else %}
-    <p>You are not logged in</p>
-    <a href="{% url 'login' %}">Log In</a>
-    <a href="{% url 'signup' %}">Sign Up</a>
-    {% endif %} -->
+
+{% if messages %}
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+{% endif %}
 
 
+<div class = "row">
+    <div class = "col-sm-12">
+        <span class="heading-meta">Home</span>
+        <h2 class="heading">Home, Sweet Home</h2>
+    </div>
+</div>
+<div class = "container-fluid">
+    <div class="row">
+        <div class = "container-text">
+            <p> 
+                Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. 
+                Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.
+            </p>
+        </div>
+    </div>
+</div>
 {% endblock %}

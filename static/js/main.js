@@ -49,7 +49,8 @@ $(document).ready(function () {
         }, delaySeconds );
     };
 
-    jQuery.each( $('.progress-box'), function() {
+    // Dynamically render progress on skill bar
+    $.each( $('.progress-box'), function() {
         skillPercent = $(this).find('.skill-percent').text();
         console.log(skillPercent)
         $(this).find('.progress-active').css("width", skillPercent)
