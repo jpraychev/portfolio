@@ -1,0 +1,43 @@
+{% extends 'home/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %} Services {% endblock %}
+
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+{% endif %}
+
+
+<div class = "row">
+    <div class = "col-sm-12">
+        <span class="heading-meta">Work</span>
+        <h2 class="heading">Past projects</h2>
+    </div>
+</div>
+<div class = "container-fluid">
+    <div class="row service-row">
+        <div class = "col-xl-5">
+            <div class = "work-box">
+                <div class = "row"> 
+                    <div class = "col-xl-5">
+                        <img src="https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg">
+                    </div>
+                    <div class = "col-xl-7">
+                        <div class = "work-details">
+                            <p class = "work-heading"> Project name </p>
+                            <p class = "work-desc"> A brief description of the project </p>
+                            <p class = "work-client"> Client: Google </p>
+                        </div>
+                    </div>
+                </div>        
+            </div>
+        </div>
+     </div>
+    </div>
+</div>
+{% endblock %}

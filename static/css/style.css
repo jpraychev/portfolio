@@ -317,7 +317,7 @@ a:focus {
     margin-right: 35px;
     text-align: center;
     line-height: 47px;
-    border-radius: 50%;
+    transform: rotate(45deg);
     border: 3px solid var(--main-color-darker);
     position: relative;
     margin-bottom: 50px;
@@ -354,6 +354,7 @@ a:focus {
 .timeline-icon {
     font-size: 1.25em;
     color: var(--white-color);
+    transform: rotate(-45deg);
 }
 
 /* EXPERIENCE PAGE */
@@ -445,7 +446,7 @@ a:focus {
     right: 0;
     margin: auto auto;
     transform: rotate(45deg);
-    border-radius: 10px;
+    /* border-radius: 10px; */
 }
 
 .fas.fa-project-diagram {
@@ -515,9 +516,54 @@ a:focus {
     justify-content: space-between;
 }
 
-/* .floatLeft {
-    margin-left: -20px;
-} */
+/* WORK PAGE */
+
+.work-box {
+    position: relative;
+    background-color: var(--white-color);
+    box-shadow: 0px 0px 56px -8px var(--box-shadow);
+    margin-top: 100px;
+    padding: 10px;
+    width: 100%;
+}
+
+.work-box img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.work-details .work-heading {
+    font-weight: 500;
+    color: var(--black-color);
+}
+
+.work-details .work-desc {
+    font-size: 1em;
+    font-weight: 400;
+}
+
+.work-details .work-client {
+    font-size: 0.75em;
+    font-weight: 400;
+}
+
+.work-icons {
+    width: 1.25em;
+    height: 1.25em;
+    opacity: 0.5;
+}
+
+.work-details .row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.work-details div div {
+    /* height: 40px; */
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
@@ -526,6 +572,10 @@ a:focus {
     .navbar {
         height: inherit;
     }
+}
+
+@media (max-width: 1200px) {
+
 }
 
 @media (max-width: 768px) {
