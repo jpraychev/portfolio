@@ -520,21 +520,48 @@ a:focus {
 
 .work-box {
     position: relative;
-    background-color: var(--white-color);
+    background-color: var(--main-color);
     box-shadow: 0px 0px 56px -8px var(--box-shadow);
     margin-top: 100px;
-    padding: 10px;
     width: 100%;
+}
+
+.work-box:hover img,
+.work-box:hover .work-details{
+    opacity: 0.5;
+}
+
+.work-box:hover .overlay-box {
+    opacity: 1;
+}
+
+.overlay-box {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 10px 20px 10px 20px;
+    color: var(--white-color);
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%)
 }
 
 .work-box img {
     width: 100%;
-    border-radius: 10px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .work-details .work-heading {
     font-weight: 500;
-    color: var(--black-color);
+    color: var(--black-075);
+}
+
+.work-details {
+    padding: 10px 10px 10px 0;
 }
 
 .work-details .work-desc {
@@ -575,7 +602,9 @@ a:focus {
 }
 
 @media (max-width: 1200px) {
-
+    .work-details {
+        padding: 10px;
+    }
 }
 
 @media (max-width: 768px) {
