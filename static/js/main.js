@@ -64,6 +64,10 @@ $(document).ready(function () {
     $('.experience').on('click', function () {
         $(this).toggleClass('updown');
     });
+
+        $( '.work-box' ).hover(function() {
+            $( this ).addClass( "disable-select" );
+        });
 });
 
 // Hides or shows the sidebar based on size of window
