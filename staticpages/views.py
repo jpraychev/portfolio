@@ -21,4 +21,7 @@ class SkillsView(TemplateView):
 
 class WorkView(TemplateView):
     template_name = 'staticpages/work.html'
+
+class BlogView(TemplateView):
+    template_name = 'staticpages/blog.html'    
     
