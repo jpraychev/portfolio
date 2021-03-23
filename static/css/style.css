@@ -659,7 +659,7 @@ ul.social-sidebar li {
 
 .blog-desc {
     margin-top: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     font-weight: 200;
     color: var(--p-color);
     font-size: 0.85em;
@@ -667,6 +667,7 @@ ul.social-sidebar li {
 
 .blog-read-more {
     font-size: 0.75em;
+    margin-bottom: 30px;
 }
 
 .blog-read-more:hover {
