@@ -235,6 +235,8 @@ ul.social-sidebar li {
     letter-spacing: 5px;
     line-height: 1.8;
     position: relative;
+    border-left: 5px solid var(--red-color);
+    padding-left: 20px;
 }
 
 /* .control-label {
@@ -415,6 +417,27 @@ ul.social-sidebar li {
     float: left;
 }
 
+/* ABOUT PAGE -> Testimonials */
+
+.quote {
+    align-items: center !important;
+}
+.quote-desc p {
+    font-size: 1em;
+}
+
+.quote-from img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 15px;
+}
+
+.quote-meta p {
+    font-size: 0.85em;
+    margin-left: 15px;
+    margin-bottom: 0;
+}
 
 /* SERVICES PAGE */
 
@@ -461,6 +484,10 @@ ul.social-sidebar li {
     margin: auto auto;
     transform: rotate(45deg);
     /* border-radius: 10px; */
+}
+
+.service-desc p {
+    font-size: 1em;
 }
 
 .fas.fa-project-diagram {
