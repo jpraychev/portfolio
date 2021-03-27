@@ -56,18 +56,18 @@ $(document).ready(function () {
         $(this).find('.progress-active').css("width", skillPercent)
     });
 
-    // Renders social box on contact page
-    $('.service-box').animate({ 
-        opacity: '1'
-    }, 1000 );
-
     $('.experience').on('click', function () {
         $(this).toggleClass('updown');
     });
 
-        $( '.work-box' ).hover(function() {
-            $( this ).addClass( "disable-select" );
-        });
+    $( '.work-box' ).hover(function() {
+        $( this ).addClass( "disable-select" );
+    });
+
+    $('.work-box, .blog-box, .service-box, .timeline-box, .testimonials-box').animate({ 
+        opacity: '1'
+    }, 1000 );
+    
 });
 
 // Hides or shows the sidebar based on size of window
