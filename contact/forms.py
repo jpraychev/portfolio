@@ -11,7 +11,6 @@ class ContactForm(forms.ModelForm):
         widget=forms.Textarea(attrs={'placeholder': 'Message'})
     )
     
-
     class Meta:
         model = Contact
         fields = ('name', 'email', 'subject', 'message')

@@ -4,6 +4,8 @@ from contact.models import Contact
 from django.urls import reverse_lazy, reverse
 from django.contrib.messages.views import SuccessMessageMixin
 from .forms import ContactForm
+from django.contrib import messages
+from django.http import HttpResponse, Http404, HttpResponseRedirect, HttpResponsePermanentRedirect
 
 class ContactView(SuccessMessageMixin, CreateView):
 
@@ -14,6 +16,9 @@ class ContactView(SuccessMessageMixin, CreateView):
     template_name = 'contact/contact.html'
     success_message = "Your message was submitted successfully!"
 
+    def form_invalid(self, form):
+        messages.error(self.request, 'Something went wrong with your submission. Please try again.')
+        return HttpResponseRedirect('')
+
     # def form_valid(self, form):
-        # contact_form = form.save()
-        # return super().form_valid(form)
+    #     return super().form_valid(form)
