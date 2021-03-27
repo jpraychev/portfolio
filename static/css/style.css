@@ -244,8 +244,8 @@ ul.social-sidebar li {
 } */
 
 /* Contact page form */
-.controls input, textarea {
-    width: 500px;
+.control-form div div input, textarea {
+    width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid var(--main-color);
@@ -253,6 +253,16 @@ ul.social-sidebar li {
     border: 1px solid var(--border-color);
 	box-shadow: 0px 0px 5px -4px var(--border-color);
 }
+
+/* .controls input, textarea {
+    width: 500px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--main-color);
+    background-color: var(--main-color);
+    border: 1px solid var(--border-color);
+	box-shadow: 0px 0px 5px -4px var(--border-color);
+} */
 
 /* Contact page form */
 .social-box {
@@ -646,7 +656,6 @@ ul.social-sidebar li {
   }
 
 /* BLOG PAGE */
-
 .blog-row {
     margin-left: -30px;
 }

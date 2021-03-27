@@ -16,12 +16,12 @@
 <div class = "row">
     <div class = "col-sm-12">
         <span class="heading-meta">Contact</span>
-        <h2 class="heading">Contact me</h2>
+        <h2 class="heading">Get in touch</h2>
     </div>
 </div>
 <div class = "container-fluid">
     <div class = "row">
-        <div class = "col-sm-4 social-box-animate">
+        <!-- <div class = "col-sm-4 social-box-animate">
             <div class = "row">
                 <div class = "social-box d-flex justify-content-center align-items-center">
                     <a href = "mailto: jpraychev@gmail.com">
@@ -65,14 +65,30 @@
                     <a href = "https://jpraychev.medium.com/"> Medium</a>
                 </div>
             </div>
-        </div>
+        </div> -->
 
-
-        <div class = "col-sm-6 contact-form-animate">
+        <div class = "col-sm-7 contact-form-animate">
                 <form method="post" class = "control-form">
+
                     {% csrf_token %}
-                    {{ form|crispy }}
-                    <button type="submit" class="btn btn-primary">Sign in</button>
+                    <div class="row">                                                           
+                        <div class="col-xl-6">
+                            {{ form.name }}
+                        </div>                    
+                        <div class="col-xl-6">
+                            {{ form.email }}
+                        </div>
+                        <div class="col-xl-12">
+                            {{ form.subject }}
+                        </div>
+                        <div class="col-xl-12">
+                            {{ form.message }}
+                        </div>
+                        <div class="col-xl-12">
+                            <button type="submit" class="btn btn-block btn-primary">Send Now</button>
+                        </div>                        
+                    </div>
+                    
                 </form>
         </div>
     </div>

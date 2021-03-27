@@ -28,13 +28,14 @@ $(document).ready(function () {
     $('.social-box-animate').animate({ 
         left: '0%',
         opacity: '1'
-    }, 750 );
+    }, 1000 );
 
     // Renders contact form on contact page
     $('.contact-form-animate').animate({ 
         right: '0%',
-        opacity: '1'
-    }, 750 );
+        opacity: '1',
+        'margin-left' : '-15px'
+    }, 1000 );
 
     for (let i=1; i<4; i++) {
         var delaySeconds = 750+i*450;
