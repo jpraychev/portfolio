@@ -44,7 +44,7 @@
                 
             </div>
             <div class = "progress-full"> 
-                <div class = "progress-active">
+                <div class = "progress-active {{ skill.skill_color }}">
                 </div>
             </div>
         </div>
@@ -66,17 +66,14 @@
             <div class = "row">
                 {% for quote in quotes %}
                     <div class = "col-xl-4">
-                        <div class = "quote-box">
+                        <div class = "quote-box" style = "border-bottom: 3px solid; border-color: {{ quote.quote_color }};">
                             <span> " </span>
                             <div class = "quote-desc">
-                                <p>
-                                    {{ quote.quote_text }}
-                                </p>
+                                <p>{{ quote.quote_text }}</p>
                             </div>
                             <div class = "row quote">
                                 <div class = "quote-from">
                                     <img src = "{{ quote.quote_author_image.url }}">
-                                    <!-- <img src = "http://localhost:8000/media/profile_images/index_KOgu7C3.png"> -->
                                 </div>
                                 <div class = "quote-meta">
                                     <p> {{ quote.quote_author }}<br>

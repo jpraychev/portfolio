@@ -18,8 +18,8 @@
             <div class = row>
                 {% for service in services %}
                 <div class = "col-xl-4">
-                    <div class = "service-box">
-                        <div class = "service-icon">
+                    <div class = "service-box" style = "border-bottom: 3px solid {{ service.service_color }};">
+                        <div class = "service-icon" style="background-color: {{ service.service_color }};">
                             <i class=" {{ service.service_icon}} "></i>
                         </div>
                         <div class = "service-headline">

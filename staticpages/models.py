@@ -7,6 +7,7 @@ class Skills(models.Model):
     skill_name = models.CharField(max_length=50)
     skill_percent = models.CharField(max_length=50)
     skill_class = models.CharField(max_length=50)
+    skill_color = models.CharField(default='red', max_length=50)
 
 
 class Testimonials(models.Model):
@@ -15,6 +16,7 @@ class Testimonials(models.Model):
     quote_author = models.CharField(max_length=20)
     quote_author_company = models.CharField(max_length=20)
     quote_author_image = models.ImageField(default='quote_images/default.jpg', upload_to='quote_images')
+    quote_color = models.CharField(default='red', max_length=50)
 
 
     def save(self, *args, **kwargs):
@@ -71,3 +73,4 @@ class Service(models.Model):
     service_name = models.CharField(max_length=50)
     service_description = models.TextField(max_length=300)
     service_icon = models.CharField(max_length=50)
+    service_color = models.CharField(default='red', max_length=50)
