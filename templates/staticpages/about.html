@@ -33,12 +33,15 @@
 </div>
 <div class = "container-fluid">
 <div class="row progress-row">
-
+    
+    {% for skill in skills %}
     <div class = "col-xl-6 floatLeft">
         <div class = "progress-box">
             <div class="flex-box">
-                <span class = "skill-name">Python <i class="fab fa-python"></i> </span>
-                <span class = "skill-percent">75%</span>
+                
+                 <span class = "skill-name"> {{skill.skill_name}} <i class=" {{ skill.skill_class }} "></i> </span>
+                <span class = "skill-percent"> {{ skill.skill_percent }}%</span>
+                
             </div>
             <div class = "progress-full"> 
                 <div class = "progress-active">
@@ -46,66 +49,8 @@
             </div>
         </div>
     </div>
-    <div class = "col-xl-6">
-        <div class = "progress-box">
-            <div class="flex-box">
-                <span class = "skill-name">SQL Databases <i class="fas fa-database"></i></span>
-                <span class = "skill-percent">44%</span>
-            </div>
-            <div class = "progress-full"> 
-                <div class = "progress-active">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class = "col-xl-6">
-        <div class = "progress-box">
-            <div class="flex-box">
-                <span class = "skill-name">Javascript & jQuery <i class="fab fa-js-square"></i></span>
-                <span class = "skill-percent">67%</span>
-            </div>
-            <div class = "progress-full"> 
-                <div class = "progress-active">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class = "col-xl-6">
-        <div class = "progress-box">
-            <div class="flex-box">
-                <span class = "skill-name">HTML & CSS <i class="fab fa-html5"></i> <i class="fab fa-css3-alt"></i></span>
-                <span class = "skill-percent">87%</span>
-            </div>
-            <div class = "progress-full"> 
-                <div class = "progress-active">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class = "col-xl-6">
-        <div class = "progress-box">
-            <div class="flex-box">
-                <span class = "skill-name">Linux <i class="fab fa-linux"></i></span>
-                <span class = "skill-percent">55%</span>
-            </div>
-            <div class = "progress-full"> 
-                <div class = "progress-active">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class = "col-xl-6">
-        <div class = "progress-box">
-            <div class="flex-box">
-                <span class = "skill-name">Computer networking <i class="fas fa-network-wired"></i></span>
-                <span class = "skill-percent">55%</span>
-            </div>
-            <div class = "progress-full"> 
-                <div class = "progress-active">
-                </div>
-            </div>
-        </div>
-    </div>
+    {% endfor %}
+
 </div>
 </div>
 <hr>
