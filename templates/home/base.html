@@ -77,6 +77,13 @@
                         </div>
                     </div>
                 </nav>
+
+                {% if messages %}
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                {% endif %}
+                
                 <hr>
                 {% block content %}
 
