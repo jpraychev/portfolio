@@ -33,7 +33,7 @@
 </div>
 <div class = "container-fluid">
 <div class="row progress-row">
-    
+
     {% for skill in skills %}
     <div class = "col-xl-6 floatLeft">
         <div class = "progress-box">
@@ -62,61 +62,30 @@
 </div>
 <div class = "container-fluid">
     <div class="row quote-row">
-        <div class = "col-xl-3">
-            <div class = "quote-box">
-                <div class = "quote-desc">
-                    <p>
-                        "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts."
-                    </p>
-                </div>
-                <div class = "row quote">
-                    <div class = "quote-from">
-                        <img src = "http://localhost:8000/media/profile_images/index_KOgu7C3.png">
+        <div class = col-xl-9>
+            <div class = "row">
+                {% for quote in quotes %}
+                    <div class = "col-xl-4">
+                        <div class = "quote-box">
+                            <div class = "quote-desc">
+                                <p>
+                                    {{ quote.quote_text }}
+                                </p>
+                            </div>
+                            <div class = "row quote">
+                                <div class = "quote-from">
+                                    <img src = "{{ quote.quote_author_image.url }}">
+                                    <!-- <img src = "http://localhost:8000/media/profile_images/index_KOgu7C3.png"> -->
+                                </div>
+                                <div class = "quote-meta">
+                                    <p> {{ quote.quote_author }}<br>
+                                        {{ quote.quote_author_company }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class = "quote-meta">
-                        <p> Jordan Raychev<br>
-                            CEO, Jordans Inc.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class = "col-xl-3">
-            <div class = "quote-box">
-                <div class = "quote-desc">
-                    <p>
-                        "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts."
-                    </p>
-                </div>
-                <div class = "row quote">
-                    <div class = "quote-from">
-                        <img src = "http://localhost:8000/media/profile_images/index_KOgu7C3.png">
-                    </div>
-                    <div class = "quote-meta">
-                        <p> Jordan Raychev<br>
-                            CEO, Jordans Inc.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class = "col-xl-3">
-            <div class = "quote-box">
-                <div class = "quote-desc">
-                    <p>
-                        "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts."
-                    </p>
-                </div>
-                <div class = "row quote">
-                    <div class = "quote-from">
-                        <img src = "http://localhost:8000/media/profile_images/index_KOgu7C3.png">
-                    </div>
-                    <div class = "quote-meta">
-                        <p> Jordan Raychev<br>
-                            CEO, Jordans Inc.
-                        </p>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
