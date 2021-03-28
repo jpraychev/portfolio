@@ -14,48 +14,23 @@
 </div>
 <div class = "container-fluid">
     <div class="row service-row">
-        <div class = "col-xl-3">
-            <div class = "service-box">
-                <div class = "service-icon">
-                    <i class="fas fa-project-diagram"></i>
+        <div class = "col-xl-9">
+            <div class = row>
+                {% for service in services %}
+                <div class = "col-xl-4">
+                    <div class = "service-box">
+                        <div class = "service-icon">
+                            <i class=" {{ service.service_icon}} "></i>
+                        </div>
+                        <div class = "service-headline">
+                            <p> {{ service.service_name }}</p>
+                        </div>
+                        <div class = "service-desc">
+                            <p>{{ service.service_description }}</p>
+                        </div>
+                    </div>
                 </div>
-                <div class = "service-headline">
-                    <p>IT consultancy</p>
-                </div>
-                <div class = "service-desc">
-                    <p>
-                        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class = "col-xl-3">
-            <div class = "service-box">
-                <div class = "service-icon"> 
-                </div>
-                <div class = "service-headline text-center">
-                    <p>Web development</p>
-                </div>
-                <div class = "service-desc">
-                    <p>
-                        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class = "col-xl-3">
-            <div class = "service-box">
-                <div class = "service-icon"> 
-                    
-                </div>
-                <div class = "service-headline text-center">
-                    <p>Python tutoring</p>
-                </div>
-                <div class = "service-desc">
-                    <p>
-                        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
-                    </p>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Skills, Testimonials, Education, Experience, Project
+from .models import Skills, Testimonials, Education, Experience, Project, Service
 
 
 @admin.register(Skills)
@@ -23,4 +23,8 @@ class ExperienceAdmin(admin.ModelAdmin):
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ('project_name' , 'project_description')
+    list_display = ('project_name' , 'project_homepage', 'project_description')
+
+@admin.register(Service)
+class ServiceAdmin(admin.ModelAdmin):
+    list_display = ('service_name' , 'service_description', 'service_icon')    

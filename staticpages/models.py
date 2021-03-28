@@ -64,3 +64,10 @@ class Project(models.Model):
             output_size = (300, 300)
             img.thumbnail(output_size)
             img.save(self.project_image.path)
+
+
+class Service(models.Model):
+    
+    service_name = models.CharField(max_length=50)
+    service_description = models.TextField(max_length=300)
+    service_icon = models.CharField(max_length=50)
