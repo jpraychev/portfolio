@@ -244,25 +244,19 @@ ul.social-sidebar li {
 } */
 
 /* Contact page form */
+
+.contact-row {
+    margin-top: 2em;
+}
+
 .control-form div div input, textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid var(--main-color);
     background-color: var(--main-color);
     border: 1px solid var(--border-color);
 	box-shadow: 0px 0px 5px -4px var(--border-color);
 }
-
-/* .controls input, textarea {
-    width: 500px;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid var(--main-color);
-    background-color: var(--main-color);
-    border: 1px solid var(--border-color);
-	box-shadow: 0px 0px 5px -4px var(--border-color);
-} */
 
 /* Contact page form */
 .social-box {
@@ -352,6 +346,7 @@ ul.social-sidebar li {
 
 .timeline-container {
     position: relative;
+    margin-top: 2em;
 }
 
 .timeline-container:before {
@@ -420,8 +415,9 @@ ul.social-sidebar li {
 /* ABOUT PAGE */
 
 .container-text {
-    font-size: 1em;
-	margin-bottom: 1em;
+    font-size: 0.85em;
+    margin-top: 2em;
+	margin-bottom: 2em;
     position: relative;
     width: 75%;
     float: left;
@@ -429,11 +425,26 @@ ul.social-sidebar li {
 
 /* ABOUT PAGE -> Testimonials */
 
+.quote-row {
+    margin-left: -30px;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.quote-box {
+    position: relative;
+    background-color: var(--white-color);
+    box-shadow: 0px 0px 56px -8px var(--box-shadow);
+    padding: 30px;
+    border-bottom: 3px solid var(--red-color);
+}
+
 .quote {
     align-items: center !important;
 }
 .quote-desc p {
     font-size: 1em;
+    font-size: 0.85em;
 }
 
 .quote-from img {
@@ -456,8 +467,7 @@ ul.social-sidebar li {
     margin-top: -50px;
 }
 
-.service-box,
-.testimonials-box {
+.service-box {
     position: relative;
     background-color: var(--white-color);
     box-shadow: 0px 0px 56px -8px var(--box-shadow);
@@ -547,6 +557,8 @@ ul.social-sidebar li {
 }
 
 .progress-row {
+    margin-top: 2em;
+    margin-bottom:  2em;
     margin-left: -30px;
     width: 75%
 }
@@ -569,12 +581,16 @@ ul.social-sidebar li {
 
 /* WORK PAGE */
 
+.work-row {
+    margin-top: 2em;
+    margin-left: -30px;
+}
+
 .work-box {
     border-radius: 5px;
     position: relative;
     background-color: var(--main-color);
     box-shadow: 0px 0px 56px -8px var(--box-shadow);
-    margin-top: 50px;
     width: 100%;
 }
 
@@ -663,6 +679,7 @@ ul.social-sidebar li {
 /* BLOG PAGE */
 .blog-row {
     margin-left: -30px;
+    margin-top: 2em;
 }
 
 .blog-row img {
@@ -720,7 +737,8 @@ ul.social-sidebar li {
 .blog-box,
 .work-box,
 .service-box, 
-.timeline-box {
+.timeline-box,
+.quote-box {
     opacity: 0;
 }
 

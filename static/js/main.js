@@ -65,7 +65,7 @@ $(document).ready(function () {
         $( this ).addClass( "disable-select" );
     });
 
-    $('.work-box, .blog-box, .service-box, .timeline-box, .testimonials-box').animate({ 
+    $('.work-box, .blog-box, .service-box, .timeline-box, .quote-box').animate({ 
         opacity: '1'
     }, 1000 );
     
