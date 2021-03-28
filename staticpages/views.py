@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.urls import reverse_lazy, reverse
 from django.contrib.messages.views import SuccessMessageMixin
-from staticpages.models import Skills, Testimonials, Education
+from staticpages.models import Skills, Testimonials, Education, Experience
 
 
 class EducationView(TemplateView):
@@ -19,6 +19,15 @@ class EducationView(TemplateView):
 
 class ExperienceView(TemplateView):
     template_name = 'staticpages/experience.html'
+
+    def get_context_data(self, **kwargs):
+        context =  super(ExperienceView,self).get_context_data(**kwargs)
+
+        experiences = Experience.objects.all()
+
+        context['experiences'] = experiences
+
+        return context 
 
 class AboutView(TemplateView):
     template_name = 'staticpages/about.html'

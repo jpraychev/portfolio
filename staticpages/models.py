@@ -36,3 +36,11 @@ class Education(models.Model):
     degree_field = models.CharField(max_length=50)
     degree_year = models.CharField(max_length=50)
     degree_description = models.TextField(max_length=300)
+
+
+class Experience(models.Model):
+    
+    experience_name = models.CharField(max_length=50)
+    experience_field = models.CharField(max_length=50)
+    experience_year = models.CharField(max_length=50)
+    experience_description = models.TextField(max_length=300)

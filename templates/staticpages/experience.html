@@ -13,81 +13,21 @@
     </div>
 </div>
 <div class = "container-fluid timeline-container accordion">
+    {% for experience in experiences %}
     <div class="row">
-        <div class=" timeline-circle timeline-badge-red fadeInUp-1">
+        <div class=" timeline-circle timeline-badge-{{ forloop.counter }} fadeInUp-{{ forloop.counter }}">
             <i class="timeline-icon fas fa-briefcase"></i>
         </div>
-        <div class = "timeline-box experience updown fadeInRight-1">
-            <h4 data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Dianel Ltd. <span> 2020 - {% now "Y" %}</span>
+        <div class = "timeline-box experience fadeInRight-{{ forloop.counter }}">
+            <h4 data-toggle="collapse" data-target="#collapse-{{ forloop.counter }}" aria-expanded="true" aria-controls="collapse-{{ forloop.counter }}">
+               {{ experience.experience_name }} <span> {{ experience.experience_year }} </span> <!-- 2020 - {% now "Y" %} -->
             </h4>
-            <h3> Network and system administrator </h3>
-            <p id="collapseOne" class="collapse show" aria-labelledby="headingOne">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
-                3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+            <h3> {{ experience.experience_field }} </h3>
+            <p id="collapse-{{ forloop.counter }}" class="collapse " aria-labelledby="headingOne">
+                {{ experience.experience_description }}
             </p> 
         </div>
     </div>
-    <div class="row">
-        <div class=" timeline-circle timeline-badge-green fadeInUp-2">
-            <i class="timeline-icon fas fa-briefcase"></i>
-        </div>
-        <div class = "timeline-box experience fadeInRight-2">
-            <h4 data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                University of Ruse "Angel Kanchev" <span> 2016 - 2020</span>
-            </h4>
-            <h3> PhD Student and Project Researcher </h3>
-            <p id="collapseTwo" class="collapse" aria-labelledby="headingOne">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
-                3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-            </p> 
-        </div>
-    </div>
-    <div class="row">
-        <div class=" timeline-circle timeline-badge-blue fadeInUp-3">
-            <i class="timeline-icon fas fa-briefcase"></i>
-        </div>
-        <div class = "timeline-box experience fadeInRight-3">
-            <h4 data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                Datasyst Ltd. <span> 2015 - 2016</span>
-            </h4>
-            <h3> Network technician and IT specialist </h3>
-            <p id="collapseThree" class="collapse" aria-labelledby="headingOne">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
-                3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-            </p> 
-        </div>
-    </div>
+    {% endfor %}
 </div>
-<!-- 
-<div class="accordion">
-    <ul class="timeline">
-        <li>
-          <div class="timeline-badge timeline-badge-red">
-            <img class = "work-icon" src = "{% static 'icons/cpu.svg' %}"> </img>
-          </div>
-          <div class="timeline-panel experience updown fadeInLeft">
-            <h4 data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Dianel, Ltd. <span> 2020 - {% now "Y" %}</span>
-            </h4>
-            <p id="collapseOne" class="collapse show" aria-labelledby="headingOne">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
-                3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-            </p> 
-          </div>
-        </li>
-        <li class="timeline-inverted">
-          <div class="timeline-badge timeline-badge-green"></div>
-          <div class="timeline-panel experience fadeInRight">
-            <h4 data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                Dianel, Ltd. <span> 2020 - {% now "Y" %}</span>
-            </h4>
-            <p id="collapseTwo" class="collapse" aria-labelledby="headingOne">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
-                3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-            </p> 
-          </div>
-        </li>
-    </ul>
-</div> -->
 {% endblock %}
