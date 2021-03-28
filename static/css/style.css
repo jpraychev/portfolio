@@ -570,6 +570,7 @@ ul.social-sidebar li {
 /* WORK PAGE */
 
 .work-box {
+    border-radius: 5px;
     position: relative;
     background-color: var(--main-color);
     box-shadow: 0px 0px 56px -8px var(--box-shadow);
@@ -609,10 +610,13 @@ ul.social-sidebar li {
     width: 100%;
     height: auto;
     background-color: rgba(0, 0, 0, 0.5);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
 .work-details .work-heading {
-    font-weight: 500;
+    font-weight: bold;
+    font-size: 1em;
     color: var(--black-075);
 }
 
@@ -621,8 +625,9 @@ ul.social-sidebar li {
 }
 
 .work-details .work-desc {
-    font-size: 1em;
-    font-weight: 400;
+    font-weight: 200;
+    color: var(--p-color);
+    font-size: 0.85em;
 }
 
 .work-details .work-client {
@@ -732,6 +737,12 @@ ul.social-sidebar li {
 @media (max-width: 1200px) {
     .work-details {
         padding: 10px;
+    }
+
+    .work-box img {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 0px;
     }
 }
 
