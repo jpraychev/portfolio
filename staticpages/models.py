@@ -1,11 +1,13 @@
 from django.db import models
 from PIL import Image
 
+
 class Skills(models.Model):
 
     skill_name = models.CharField(max_length=50)
     skill_percent = models.CharField(max_length=50)
     skill_class = models.CharField(max_length=50)
+
 
 class Testimonials(models.Model):
 
@@ -26,3 +28,11 @@ class Testimonials(models.Model):
             output_size = (300, 300)
             img.thumbnail(output_size)
             img.save(self.quote_author_image.path)
+
+
+class Education(models.Model):
+    
+    degree_name = models.CharField(max_length=50)
+    degree_field = models.CharField(max_length=50)
+    degree_year = models.CharField(max_length=50)
+    degree_description = models.TextField(max_length=300)

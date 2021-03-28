@@ -12,45 +12,21 @@
         <h2 class="heading">Education</h2>
     </div>
 </div>
+
 <div class = "container-fluid timeline-container">
+    {% for education in educations %}
     <div class="row">
-        <div class="timeline-circle timeline-badge-red fadeInUp-1">
+        <div class="timeline-circle timeline-badge-{{ forloop.counter }} fadeInUp-{{ forloop.counter }}">
             <i class="timeline-icon fas fa-graduation-cap"></i>
         </div>
-        <div class = "timeline-box fadeInRight-1">
-            <h4>Doctor of Philosophy (PhD) <span>2016 - 2019</span></h4>
-            <h3>Computer system and technologies</h3>
+        <div class = "timeline-box fadeInRight-{{ forloop.counter }}">
+            <h4> {{ education.degree_name }} <span> {{ education.degree_year }} </span></h4>
+            <h3> {{ education.degree_field }} </h3>
             <p> 
-                Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. 
-                Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.
+                {{ education.degree_description }}
             </p>
         </div>
     </div>
-    <div class="row">
-        <div class=" timeline-circle timeline-badge-green fadeInUp-2">
-            <i class="timeline-icon fas fa-graduation-cap"></i>
-        </div>
-        <div class = "timeline-box fadeInRight-2">
-            <h4>Masters <span>2014 - 2015</span></h4>
-            <h3>Telecommunications </h3>
-            <p> 
-                Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. 
-                Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.
-            </p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="timeline-circle timeline-badge-blue fadeInUp-3">
-            <i class="timeline-icon fas fa-graduation-cap "></i>
-        </div>
-        <div class = "timeline-box fadeInRight-3">
-            <h4>Bachelor <span>2010 - 2014</span></h4>
-            <h3>Telecommunications </h3>
-            <p> 
-                Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. 
-                Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.
-            </p>
-        </div>
-    </div>
+    {% endfor %}
 </div>
 {% endblock %}

@@ -402,13 +402,13 @@ ul.social-sidebar li {
     margin-top: 10px;
 }
 
-.timeline-badge-red {
+.timeline-badge-1 {
     background-color: var(--red-color);
 }
-.timeline-badge-green {
+.timeline-badge-2 {
     background-color: var(--green-color);
 }
-.timeline-badge-blue {
+.timeline-badge-3 {
     background-color: var(--blue-color);
 }
 
@@ -445,10 +445,9 @@ ul.social-sidebar li {
     position: absolute;
     top: 0;
     left: 0;
-    padding-top: 10px;
-    padding-left: 5px;
+    padding-top: 7px;
+    padding-left: 7px;
     color: var(--white-color);
-    font-family: Brush Script Std;
 }
 
 .quote-box::before {
