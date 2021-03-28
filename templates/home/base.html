@@ -78,12 +78,17 @@
                     </div>
                 </nav>
 
-                {% if messages %}
-                    {% for message in messages %}
-                        {{ message }}
-                    {% endfor %}
-                {% endif %}
-                    
+                <!-- <div class="col-sm-12"> -->
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                {{ message | safe }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                <!-- <div> -->
+   
                 <hr>
                 {% block content %}
 
