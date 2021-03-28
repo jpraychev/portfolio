@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Skills, Testimonials, Education, Experience
+from .models import Skills, Testimonials, Education, Experience, Project
 
 
 @admin.register(Skills)
@@ -20,3 +20,7 @@ class EducationAdmin(admin.ModelAdmin):
 @admin.register(Experience)
 class ExperienceAdmin(admin.ModelAdmin):
     list_display = ('experience_name' , 'experience_field' , 'experience_year', 'experience_description')
+
+@admin.register(Project)
+class ProjectAdmin(admin.ModelAdmin):
+    list_display = ('project_name' , 'project_description')
