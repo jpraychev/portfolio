@@ -439,6 +439,32 @@ ul.social-sidebar li {
     padding: 30px;
     border-bottom: 3px solid var(--red-color);
 }
+.quote-box span {
+    font-size: 30px;
+    line-height: 30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 10px;
+    padding-left: 5px;
+    color: var(--white-color);
+    font-family: Brush Script Std;
+}
+
+.quote-box::before {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 40px 40px 0 0;
+	border-color: var(--blue-color) #3e030300 transparent transparent;
+	-webkit-transform: rotate(360deg);
+}
+
 
 .quote {
     align-items: center !important;
