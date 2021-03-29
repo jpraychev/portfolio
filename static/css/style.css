@@ -768,15 +768,19 @@ ul.social-sidebar li {
 	border-color: #f5c6cb;
 }
 
-.red { background-color: var(--red-color); }
-.green { background-color: var(--green-color); }
-.blue { background-color: var(--blue-color); }
-.darker-blue { background-color: var(--darker-blue-color); }
-.white { background-color: var(--white-color); }
-.yellow { background-color: var(--yellow-color); }
-.purple { background-color: var(--purple-color); }
+.home-row {
+    margin-left: -30px;
+}
 
+.home-row p {
+    font-size: 1.2em;
+    margin-bottom: 3em;
+}
 
+.page-desc {
+    /* margin-left: -30px; */
+    /* text-align: center; */
+}
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
@@ -788,6 +792,12 @@ ul.social-sidebar li {
 }
 
 @media (max-width: 1200px) {
+
+    .blog-details,
+    .blog-row img {
+        width: 100%;
+    }
+
     .work-details {
         padding: 10px;
     }

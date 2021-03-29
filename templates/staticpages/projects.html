@@ -13,6 +13,18 @@
     </div>
 </div>
 <div class = "container-fluid">
+    <div class = "row page-desc">
+        <div class = "col-xl-10">
+            <p class = "text-center">
+                Welcome to my online portfolio. Here you will find all recent projects that I have been working on.
+                If you are interested in working with me I am open for freelance work at the moment, just click
+                the button below and contact me.
+            </p>
+            <a href = "{% url 'contact' %}"> 
+            <button type="submit" class="btn btn-block btn-primary" style = "width: 125px; margin: auto; font-weight: bold;">Hire me</button>
+            </a>
+        </div>
+    </div>
     <div class="row work-row">
         {% for project in projects %}
         <div class = "col-xl-5">
