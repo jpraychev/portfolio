@@ -57,11 +57,11 @@ class ServicesView(TemplateView):
 class SkillsView(TemplateView):
     template_name = 'staticpages/skills.html'
 
-class WorkView(TemplateView):
-    template_name = 'staticpages/work.html'
+class ProjectView(TemplateView):
+    template_name = 'staticpages/projects.html'
 
     def get_context_data(self, **kwargs):
-        context =  super(WorkView,self).get_context_data(**kwargs)
+        context =  super(ProjectView,self).get_context_data(**kwargs)
 
         projects = Project.objects.all()
 
