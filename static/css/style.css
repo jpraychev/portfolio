@@ -525,12 +525,9 @@ ul.social-sidebar li {
     transform: rotate(45deg);
 }
 
-.service-desc p {
-    font-size: 1em;
-}
-
-.fas.fa-project-diagram {
+.service-icon i {
     transform: rotate(-45deg);
+    padding-left: 5px;
 }
 
 /* SKILLS PAGE */
@@ -545,7 +542,6 @@ ul.social-sidebar li {
 
 
 .progress-active {
-    /* background: var(--blue-color); */
     width: 0%;
     height: 100%;
     border-radius: 5px;
@@ -553,10 +549,6 @@ ul.social-sidebar li {
     transition-property: width;
     transition-duration: 3s;
 }
-
-/* .progress-active-animation {
-    width: 75%;
-} */
 
 .progress-active::before{
     content: "";
@@ -751,7 +743,6 @@ ul.social-sidebar li {
     cursor: pointer;
 }
 
-
 /* OPACITY ELEMENTS */
 .blog-box,
 .work-box,
@@ -777,10 +768,6 @@ ul.social-sidebar li {
     margin-bottom: 3em;
 }
 
-.page-desc {
-    /* margin-left: -30px; */
-    /* text-align: center; */
-}
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */

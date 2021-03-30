@@ -4,12 +4,12 @@ from .models import Skills, Testimonials, Education, Experience, Project, Servic
 
 @admin.register(Skills)
 class SkillAdmin(admin.ModelAdmin):
-    list_display = ('skill_name' , 'skill_percent' , 'skill_class')
+    list_display = ('skill_name' , 'skill_percent' , 'skill_class', 'skill_color')
 
 
 @admin.register(Testimonials)
 class TestimonialsAdmin(admin.ModelAdmin):
-    list_display = ('quote_text' , 'quote_author' , 'quote_author_company')
+    list_display = ('quote_text' , 'quote_author' , 'quote_author_company', 'quote_color')
 
 
 @admin.register(Education)
@@ -27,4 +27,4 @@ class ProjectAdmin(admin.ModelAdmin):
 
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
-    list_display = ('service_name' , 'service_description', 'service_icon')    
+    list_display = ('service_name' , 'service_description', 'service_icon', 'service_color')    

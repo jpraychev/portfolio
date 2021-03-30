@@ -1,13 +1,38 @@
 from django.db import models
 from PIL import Image
 
+COLORS = [
+    ( '#ec5453', 'Red' ),
+    ( '#2fa499', 'Green' ),
+    ( '#2c98f0', 'Blue' ),
+    ( '#4054b2', 'Dark blue' ),
+    ( '#f9bf3f', 'Yellow' ),
+    ( '#a84cb8', 'Purple' ),
+]
 
+ICONS = [
+    ( 'fas fa-network-wired', 'Network wired' ),
+    ( 'fab fa-linux', 'Linux' ),
+    ( 'fab fa-css3-alt', 'HTML & CSS3' ),
+    ( 'fab fa-js-square', 'Javascript' ),
+    ( 'fas fa-database', 'SQL' ),
+    ( 'fab fa-python', 'Python' ),
+    ( 'fas fa-code', 'Code')
+]
 class Skills(models.Model):
 
     skill_name = models.CharField(max_length=50)
     skill_percent = models.CharField(max_length=50)
-    skill_class = models.CharField(max_length=50)
-    skill_color = models.CharField(default='red', max_length=50)
+    skill_class = models.CharField(
+        max_length=20,
+        choices=ICONS,
+        default='Python',
+    )
+    skill_color = models.CharField(
+        max_length=20,
+        choices=COLORS,
+        default='Red',
+    )
 
 
 class Testimonials(models.Model):
@@ -16,8 +41,11 @@ class Testimonials(models.Model):
     quote_author = models.CharField(max_length=20)
     quote_author_company = models.CharField(max_length=20)
     quote_author_image = models.ImageField(default='quote_images/default.jpg', upload_to='quote_images')
-    quote_color = models.CharField(default='red', max_length=50)
-
+    quote_color = models.CharField(
+        max_length=20,
+        choices=COLORS,
+        default='Red',
+    )
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
@@ -72,5 +100,13 @@ class Service(models.Model):
     
     service_name = models.CharField(max_length=50)
     service_description = models.TextField(max_length=300)
-    service_icon = models.CharField(max_length=50)
-    service_color = models.CharField(default='red', max_length=50)
+    service_icon = models.CharField(
+        max_length=20,
+        choices=ICONS,
+        default='Python',
+    )
+    service_color = models.CharField(
+        max_length=20,
+        choices=COLORS,
+        default='Red',
+    )
