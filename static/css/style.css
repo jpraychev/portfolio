@@ -3,7 +3,6 @@
 :root {
     --main-color: rgb(242, 243, 247);
     --main-color-darker: rgb(230, 230, 230);
-
     --red-color: #ec5453;
     --green-color: #2fa499;
     --blue-color: #2c98f0;
@@ -11,7 +10,6 @@
     --white-color: #ffffff;
     --yellow-color: #f9bf3f;
     --purple-color: #a84cb8;
-
     --border-color: rgba(0, 0, 0, 0.1);
     --black-color: rgba(0,0,0);
     --p-color: rgba(0, 0, 0, 0.5);
