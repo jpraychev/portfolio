@@ -73,9 +73,7 @@ $(document).ready(function () {
 
 // Hides or shows the sidebar based on size of window
 $(window).on('resize', function() {
-    
     width = $(this).width();
     checkWidth(width) ? addActive() : removeActive();
-
 });
 

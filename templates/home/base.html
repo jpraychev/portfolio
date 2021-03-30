@@ -20,33 +20,8 @@
     <body>
         <div class="wrapper">
             <!-- Sidebar  -->
-            <nav id="sidebar" class = "active">
-                <div class="sidebar-header">
-                    <!-- <img class="rounded-circle profile-img" src="{{ user.profile_image.url }}"/> -->
-                    <img class="rounded-circle profile-img" src="{% static 'profile-image/default-jraychev.png' %}"/>
-                    <a class="name" href = "{% url 'home' %}"> Jordan Raychev </a>
-                    <p class="profession"> Software engineer </p>
-                    <div class = "row">
-                        <ul class = "list-unstyled social-sidebar">
-                            <li><a href="https://github.com/jpraychev"> <i class="bi bi-github fa-lg"></i> </a></li>
-                            <li><a href="https://www.linkedin.com/in/jordan-raychev-5a69a691/"><i class="bi bi-linkedin fa-lg"></i></a></li>
-                            <li><a href="https://www.facebook.com/JordanRaychev/"><i class="bi bi-facebook fa-lg"></i></a></li>
-                            <li><a href="https://twitter.com/jpraychev"><i class="bi bi-twitter fa-lg"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <hr class = "sidebar-hr">
-                <ul class = "list-unstyled">
-                    <li><a class = "{% if request.path == '/' %} active {% endif %}" href="{% url 'home' %}" data-nav-section="home">Home</a></li>
-                    <li><a class = "{% if request.path == '/pages/about/' %} active {% endif %}" href="{% url 'about' %}" data-nav-section="about">About</a></li>
-                    <li><a class = "{% if request.path == '/pages/services/' %} active {% endif %}" href="{% url 'services' %}" data-nav-section="services">Services</a></li>
-                    <li><a class = "{% if request.path == '/pages/education/' %} active {% endif %}" href="{% url 'education' %}" data-nav-section="education">Education</a></li>
-                    <li><a class = "{% if request.path == '/pages/experience/' %} active {% endif %}" href="{% url 'experience' %}" data-nav-section="experience">Experience</a></li>
-                    <li><a class = "{% if request.path == '/pages/projects/' %} active {% endif %}" href="{% url 'projects' %}" data-nav-section="experience">Projects</a></li>
-                    <li><a class = "{% if request.path == '/pages/blog/' %} active {% endif %}" href="{% url 'blog' %}" data-nav-section="experience">Blog</a></li>
-                    <li><a class = "{% if request.path == '/contact/' %} active {% endif %}" href="{% url 'contact' %}" data-nav-section="contact">Contact</a></li>
-                </ul>
-            </nav>
+            {% include "home/navbar.html" %}
+            
             <div id="sidebarCollapse">
                 <i class="arrow left"></i>
             </div>
