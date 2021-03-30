@@ -19,6 +19,16 @@ ICONS = [
     ( 'fab fa-python', 'Python' ),
     ( 'fas fa-code', 'Code')
 ]
+
+def image_resize(image, width, height):
+
+    img = Image.open(image.path)
+
+    if img.height > height or img.width > width:
+        output_size = (height, height)
+        img.thumbnail(output_size)
+        img.save(image.path)
+        
 class Skills(models.Model):
 
     skill_name = models.CharField(max_length=50)
@@ -37,7 +47,7 @@ class Skills(models.Model):
 
 class Testimonials(models.Model):
 
-    quote_text = models.TextField(max_length=100)
+    quote_text = models.TextField(max_length=200)
     quote_author = models.CharField(max_length=20)
     quote_author_company = models.CharField(max_length=20)
     quote_author_image = models.ImageField(default='quote_images/default.jpg', upload_to='quote_images')
@@ -50,14 +60,7 @@ class Testimonials(models.Model):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         
-        img = Image.open(self.quote_author_image.path)
-
-        # TO DO
-        # Saved image should have static height and width in order to prevent the user to upload too big files
-        if img.height > 300 or img.width > 300:
-            output_size = (300, 300)
-            img.thumbnail(output_size)
-            img.save(self.quote_author_image.path)
+        image_resize(self.quote_author_image, 300, 300)
 
 
 class Education(models.Model):
