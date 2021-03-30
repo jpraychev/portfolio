@@ -84,19 +84,13 @@ class Project(models.Model):
     project_name = models.CharField(max_length=50)
     project_description = models.TextField(max_length=300)
     project_homepage = models.CharField(max_length=50)
+    project_client = models.CharField(max_length=50, null=True, blank=True)
     project_image = models.ImageField(default='project_images/default.jpg', upload_to='project_images')
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         
-        img = Image.open(self.project_image.path)
-
-        # TO DO
-        # Saved image should have static height and width in order to prevent the user to upload too big files
-        if img.height > 300 or img.width > 300:
-            output_size = (300, 300)
-            img.thumbnail(output_size)
-            img.save(self.project_image.path)
+        image_resize(self.project_image, 300, 300)
 
 
 class Service(models.Model):
