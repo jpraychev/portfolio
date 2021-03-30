@@ -54,6 +54,7 @@ class ServicesView(TemplateView):
         context['services'] = services
 
         return context
+
 class SkillsView(TemplateView):
     template_name = 'staticpages/skills.html'
 
