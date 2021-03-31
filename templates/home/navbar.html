@@ -1,4 +1,5 @@
 {% load static %}
+{% load menu %}
 
 <nav id="sidebar" class = "active">
     <div class="sidebar-header">
@@ -17,13 +18,14 @@
     </div>
     <hr class = "sidebar-hr">
     <ul class = "list-unstyled">
-        <li><a class = "{% if request.path == '/' %} active {% endif %}" href="{% url 'home' %}" data-nav-section="home">Home</a></li>
+        {% get_menu %}
+        <!-- <li><a class = "{% if request.path == '/' %} active {% endif %}" href="{% url 'home' %}" data-nav-section="home">Home</a></li>
         <li><a class = "{% if request.path == '/pages/about/' %} active {% endif %}" href="{% url 'about' %}" data-nav-section="about">About</a></li>
         <li><a class = "{% if request.path == '/pages/services/' %} active {% endif %}" href="{% url 'services' %}" data-nav-section="services">Services</a></li>
         <li><a class = "{% if request.path == '/pages/education/' %} active {% endif %}" href="{% url 'education' %}" data-nav-section="education">Education</a></li>
         <li><a class = "{% if request.path == '/pages/experience/' %} active {% endif %}" href="{% url 'experience' %}" data-nav-section="experience">Experience</a></li>
         <li><a class = "{% if request.path == '/pages/projects/' %} active {% endif %}" href="{% url 'projects' %}" data-nav-section="experience">Projects</a></li>
         <li><a class = "{% if request.path == '/pages/blog/' %} active {% endif %}" href="{% url 'blog' %}" data-nav-section="experience">Blog</a></li>
-        <li><a class = "{% if request.path == '/contact/' %} active {% endif %}" href="{% url 'contact' %}" data-nav-section="contact">Contact</a></li>
+        <li><a class = "{% if request.path == '/contact/' %} active {% endif %}" href="{% url 'contact' %}" data-nav-section="contact">Contact</a></li> -->
     </ul>
 </nav>

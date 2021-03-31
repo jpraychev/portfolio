@@ -1,0 +1,4 @@
+{% for item in menu %}
+    <!-- {{ item.menu_slug}} -->
+    <li><a class = "{% if request.path %} active {% endif %}" href="{% url item.menu_slug %}"> {{ item.menu_name}} </a></li>
+{% endfor %}
