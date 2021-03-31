@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Skills, Testimonials, Education, Experience, Project, Service
+from .models import Skills, Testimonials, Education, Experience, Project, Service, Menu
 
 
 @admin.register(Skills)
@@ -27,4 +27,8 @@ class ProjectAdmin(admin.ModelAdmin):
 
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
-    list_display = ('service_name' , 'service_description', 'service_icon', 'service_color')    
+    list_display = ('service_name' , 'service_description', 'service_icon', 'service_color')
+
+@admin.register(Menu)
+class MenuAdmin(admin.ModelAdmin):
+    list_display = ('menu_name', 'menu_slug')

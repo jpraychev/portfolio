@@ -105,3 +105,13 @@ class Service(models.Model):
         choices=COLORS,
         default='Red',
     )
+
+class Menu(models.Model):
+    menu_name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.menu_name   
+
+    @property
+    def menu_slug(self):
+        return self.menu_name.lower()
