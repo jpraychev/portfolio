@@ -404,6 +404,9 @@ ul.social-sidebar li {
 .timeline-badge-3 {
     background-color: var(--blue-color);
 }
+.timeline-badge-4 {
+    background-color: var(--purple-color);
+}
 
 /* ABOUT PAGE */
 

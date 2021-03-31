@@ -76,13 +76,12 @@ class Experience(models.Model):
     experience_name = models.CharField(max_length=50)
     experience_field = models.CharField(max_length=50)
     experience_year = models.CharField(max_length=50)
-    experience_description = models.TextField(max_length=300)
-
+    experience_description = models.TextField(max_length=750)
 
 class Project(models.Model):
     
     project_name = models.CharField(max_length=50)
-    project_description = models.TextField(max_length=300)
+    project_description = models.TextField(max_length=500)
     project_homepage = models.CharField(max_length=50)
     project_client = models.CharField(max_length=50, null=True, blank=True)
     project_image = models.ImageField(default='project_images/default.jpg', upload_to='project_images')
@@ -91,7 +90,6 @@ class Project(models.Model):
         super().save(*args, **kwargs)
         
         image_resize(self.project_image, 300, 300)
-
 
 class Service(models.Model):
     

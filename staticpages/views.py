@@ -23,7 +23,7 @@ class ExperienceView(TemplateView):
     def get_context_data(self, **kwargs):
         context =  super(ExperienceView,self).get_context_data(**kwargs)
 
-        experiences = Experience.objects.all()
+        experiences = Experience.objects.all().order_by('-experience_year')
 
         context['experiences'] = experiences
 

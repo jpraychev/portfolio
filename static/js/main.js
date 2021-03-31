@@ -37,7 +37,10 @@ $(document).ready(function () {
         'margin-left' : '-15px'
     }, 1000 );
 
-    for (let i=1; i<4; i++) {
+    // Get number of experience objects from DB
+    const timelineLength = $('.timeline-box').parent().length + 1 
+
+    for (let i = 1; i < timelineLength; i++) {
         var delaySeconds = 750+i*450;
 
         $('.fadeInUp-'+ i +'').animate({
