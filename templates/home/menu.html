@@ -1,4 +1,11 @@
 {% for item in menu %}
-    <!-- {{ item.menu_slug}} -->
-    <li><a class = "{% if request.path %} active {% endif %}" href="{% url item.menu_slug %}"> {{ item.menu_name}} </a></li>
+    {% url item.menu_slug as active_menu_item %}
+    <li><a class = "{% if request.path == active_menu_item %} active {% endif %}" href="{% url item.menu_slug %}"> {{ item.menu_name}} </a></li>
 {% endfor %}
+
+staticpages/__pycache__/__init__.cpython-38.pyc
+staticpages/__pycache__/admin.cpython-38.pyc
+staticpages/__pycache__/apps.cpython-38.pyc
+staticpages/__pycache__/models.cpython-38.pyc
+staticpages/__pycache__/urls.cpython-38.pyc
+staticpages/migrations/__pycache__/__init__.cpython-38.pyc

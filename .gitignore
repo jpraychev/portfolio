@@ -14,3 +14,4 @@ contact/migrations/*
 jraychev_website/settings.py
 staticpages/migrations*
 staticpages/__pycache__/*
+home/templatetags/__pycache__/*
