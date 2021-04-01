@@ -1,9 +1,9 @@
 from django.urls import path, re_path
 from .views import PostsView, \
                     PostsDetailView, \
-                    TagView, tag_view, \
-                    CategoryView, cat_view, \
-                    PostCreateView, create_view, \
+                    TagView, \
+                    CategoryView, \
+                    PostCreateView, \
                     BeforePostCreateView, \
                     PostDeleteView, \
                     PostUpdateView

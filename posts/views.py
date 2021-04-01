@@ -13,7 +13,7 @@ from django.core.exceptions import PermissionDenied
 # Define private variables for views
 _PAGINATE_BY = 5
 
-class PostsView(ListView):
+class PostsView(LoginRequiredMixin, ListView):
 
     paginate_by = _PAGINATE_BY
     # model = Post
@@ -22,25 +22,25 @@ class PostsView(ListView):
     template_name = 'posts/all_posts.html'
     login_url = reverse_lazy('login')
 
-class PostsDetailView(DetailView):
+class PostsDetailView(LoginRequiredMixin, DetailView):
 
     # model = Post
     queryset = Post.objects.filter(status=0)
     template_name = 'posts/post_detail.html'
 
 # FBV - passing url parameters
-def tag_view(request, tag_name):
+# def tag_view(request, tag_name):
 
-    searched_tag = Tag.objects.filter(name=tag_name).values_list('id', flat=True)
+#     searched_tag = Tag.objects.filter(name=tag_name).values_list('id', flat=True)
 
-    tag_id = get_object_or_404(searched_tag)
-    posts_by_tag = Post.objects.filter(tags=tag_id, status=0)
+#     tag_id = get_object_or_404(searched_tag)
+#     posts_by_tag = Post.objects.filter(tags=tag_id, status=0)
 
-    paginator = Paginator(posts_by_tag, _PAGINATE_BY)
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
+#     paginator = Paginator(posts_by_tag, _PAGINATE_BY)
+#     page_number = request.GET.get('page')
+#     page_obj = paginator.get_page(page_number)
 
-    return render(request, 'posts/posts_tag.html', {'posts_by_tag': posts_by_tag, 'page_obj': page_obj,})
+#     return render(request, 'posts/posts_tag.html', {'posts_by_tag': posts_by_tag, 'page_obj': page_obj,})
 
 # CBV - passing url parameters
 class TagView(ListView):
@@ -60,18 +60,18 @@ class TagView(ListView):
         return Post.objects.filter(tags=tag_id, status=0)
 
 # FBV - passing url parameters
-def cat_view(request, cat_name):
+# def cat_view(request, cat_name):
 
-    category = Category.objects.filter(name=cat_name)
+#     category = Category.objects.filter(name=cat_name)
 
-    cat_id = get_object_or_404(category)
-    posts_by_cat = Post.objects.filter(category=cat_id, status=0)
+#     cat_id = get_object_or_404(category)
+#     posts_by_cat = Post.objects.filter(category=cat_id, status=0)
 
-    paginator = Paginator(posts_by_cat, _PAGINATE_BY)
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
+#     paginator = Paginator(posts_by_cat, _PAGINATE_BY)
+#     page_number = request.GET.get('page')
+#     page_obj = paginator.get_page(page_number)
 
-    return render(request, 'posts/posts_cat.html', {'posts_by_cat' : posts_by_cat, 'page_obj': page_obj})
+#     return render(request, 'posts/posts_cat.html', {'posts_by_cat' : posts_by_cat, 'page_obj': page_obj})
 
 # CBV - passing url parameters
 class CategoryView(ListView):
@@ -90,8 +90,8 @@ class CategoryView(ListView):
 
         return Post.objects.filter(category=cat_id, status=0)
 
-def create_view(request):
-    pass
+# def create_view(request):
+#     pass
 
 class BeforePostCreateView(LoginRequiredMixin, FormView):
 

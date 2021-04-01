@@ -23,7 +23,7 @@ def username_valid(username):
             return True
     return False
 
-class SignUpView(CreateView):
+class SignUpView(LoginRequiredMixin, CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'accounts/signup.html'
@@ -113,7 +113,7 @@ class LoginView(LoginView):
 
         return render(request, self.template_name, {'form': form})
 
-class LogoutView(RedirectView):
+class LogoutView(LoginRequiredMixin, RedirectView):
 
     template_name = 'accounts/logout.html'
 
