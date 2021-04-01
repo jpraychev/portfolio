@@ -1,8 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-
 from .forms import CustomUserCreationForm, CustomUserChangeForm
-from .models import CustomUser
+from .models import CustomUser, UserSocial
 
 class CustomUserAdmin(UserAdmin):
     add_form = CustomUserCreationForm
@@ -14,15 +13,19 @@ class CustomUserAdmin(UserAdmin):
     # that reference specific fields on auth.User.
     list_display = ['id', 'email', 'username', 'first_name','last_name','department', 'slug', 'is_active']
     fieldsets = UserAdmin.fieldsets + (
-        (None, {'fields': ('department', 'slug', 'profile_image',)}),
+        (None, {'fields': ('department', 'slug', 'profile_image', 'profession')}),
     )
 
     
     # add_fieldsets is not a standard ModelAdmin attribute. UserAdmin
     # overrides get_fieldsets to use this attribute when creating a user.
     add_fieldsets = UserAdmin.add_fieldsets + (
-        (None, {'fields': ('department', 'slug', 'profile_image',)}),
+        (None, {'fields': ('department', 'slug', 'profile_image', 'profession')}),
     )
 
     # Now register the new UserAdmin...
 admin.site.register(CustomUser, CustomUserAdmin)
+
+@admin.register(UserSocial)
+class UserSocialAdmin(admin.ModelAdmin):
+    list_display = ('user', 'social_name', 'social_class', 'social_url')
