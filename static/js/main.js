@@ -72,6 +72,14 @@ $(document).ready(function () {
         opacity: '1'
     }, 1000 );
     
+    // Key combination to show/hide sidebar CTRL + ALT + B
+    $(document).keydown(function(e){
+        if( e.ctrlKey  &&  e.altKey  &&  e.which === 66) {
+            $('#sidebar').toggleClass('active');
+            $('.arrow').toggleClass('left right');
+        }        
+    });
+
 });
 
 // Hides or shows the sidebar based on size of window
