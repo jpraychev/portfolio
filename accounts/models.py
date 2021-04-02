@@ -6,6 +6,7 @@ class CustomUser(AbstractUser):
     # add additional fields in here
     department = models.CharField(max_length=50)
     profession = models.CharField(max_length=50)
+    about = models.TextField(default='', max_length=1000)
     slug = models.SlugField(max_length=50)
     profile_image = models.ImageField(default='profile_default.jpg', upload_to='profile_images')
 

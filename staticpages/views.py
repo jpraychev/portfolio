@@ -3,6 +3,7 @@ from django.views.generic import TemplateView
 from django.urls import reverse_lazy, reverse
 from django.contrib.messages.views import SuccessMessageMixin
 from staticpages.models import Skills, Testimonials, Education, Experience, Project, Service
+from accounts.models import CustomUser
 
 
 class EducationView(TemplateView):
@@ -37,9 +38,11 @@ class AboutView(TemplateView):
 
         skills = Skills.objects.all()
         quotes = Testimonials.objects.all()
+        jraychev_about = CustomUser.objects.filter(id=1).values('about')
 
         context['skills'] = skills
         context['quotes'] = quotes
+        context['jraychev_about'] = jraychev_about
 
         return context  
 

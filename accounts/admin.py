@@ -13,7 +13,7 @@ class CustomUserAdmin(UserAdmin):
     # that reference specific fields on auth.User.
     list_display = ['id', 'email', 'username', 'first_name','last_name','department', 'slug', 'is_active']
     fieldsets = UserAdmin.fieldsets + (
-        (None, {'fields': ('department', 'slug', 'profile_image', 'profession')}),
+        (None, {'fields': ('department', 'slug', 'profile_image', 'profession', 'about')}),
     )
 
     
