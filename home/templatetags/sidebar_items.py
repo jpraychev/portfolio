@@ -19,5 +19,6 @@ def get_social(user):
 @register.inclusion_tag('home/user_meta.html', takes_context=True)
 def get_user_meta(context, id):
     request = context['request']
-    user_data = get_object_or_404(CustomUser.objects.filter(id=id).values('username', 'first_name', 'last_name', 'profession', 'profile_image'))
+    user_data = CustomUser.objects.filter(id=id)
+    # user_data = get_object_or_404(CustomUser.objects.filter(id=id).values('username', 'first_name', 'last_name', 'profession', 'profile_image'))
     return { 'user_data' : user_data, 'request': request }

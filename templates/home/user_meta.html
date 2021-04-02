@@ -1,3 +1,3 @@
-<img class="rounded-circle profile-img" src="{{ request.scheme }}://{{ request.get_host}}/media/{{user_data.profile_image}}">
-<a class="name" href = "{% url 'home' %}"> {{ user_data.first_name }} {{ user_data.last_name }} </a>
-<p class="profession"> {{ user_data.profession }} </p>
+<img class="rounded-circle profile-img" src="{{ user_data.0.profile_image.url }}">
+<a class="name" href = "{% url 'home' %}"> {{ user_data.0.first_name }} {{ user_data.0.last_name }} </a>
+<p class="profession"> {{ user_data.0.profession }} </p>
