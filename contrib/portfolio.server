@@ -1,0 +1,21 @@
+[Unit]
+Description=Portfolio WSGI Service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+
+User=jraychev
+Group=jraychev
+PIDFile=/var/tmp/portfolio.pid
+WorkingDirectory=/opt/portfolio/src/jraychev_website
+
+ExecStart=/opt/portfolio/venv/bin/gunicorn --pid /var/tmp/portfolio.pid --pythonpath /opt/portfolio/src/jraychev_website --config /opt/portfolio/src/contrib/gunicorn.py jraychev_website.wsgi
+
+Restart=on-failure
+RestartSec=30
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
