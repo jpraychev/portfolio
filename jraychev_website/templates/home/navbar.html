@@ -14,4 +14,9 @@
     <ul class = "list-unstyled">
         {% get_menu %}
     </ul>
+    <hr class = "sidebar-hr">
+    <div class = 'copyright text-center'>
+        © {% now "Y" %} Copyright. <span>All rights reserved.</span>
+        <a href = "{{ request.get_host }}"> Jordan Raychev </a>
+    </div>
 </nav>

@@ -769,6 +769,15 @@ ul.social-sidebar li {
     margin-bottom: 3em;
 }
 
+.copyright {
+    font-size: 0.8em;
+    color: var(--p-color);
+}
+
+.copyright a {
+    display: block;
+}
+
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
