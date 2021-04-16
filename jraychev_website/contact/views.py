@@ -7,17 +7,17 @@ from .forms import ContactForm
 from django.contrib import messages
 from django.http import HttpResponse, Http404, HttpResponseRedirect, HttpResponsePermanentRedirect
 from django.core.mail import send_mail
+from django.conf import settings
 
 def send_email(form_data, remote_ip):
 
+    form_message = form_data.cleaned_data['message']
+    subject = form_data.cleaned_data['subject']
+    
     try:
         email = form_data.cleaned_data['email']
-        subject = form_data.cleaned_data['subject']
-        form_message = form_data.cleaned_data['message']
     except:
         email = 'INVALID EMAIL'
-        subject = 'INVALID SUBJECT'
-        form_message = 'INVALID MESSAGE'
         
     message = f'''The current message was received from {email} with IP: {remote_ip}
     
@@ -26,8 +26,8 @@ def send_email(form_data, remote_ip):
 
     send_mail(subject, 
         message, 
-        from_email='jraychevdjango@gmail.com', 
-        recipient_list=['jpraychev@gmail.com'], 
+        from_email=settings.EMAIL_HOST_USER, 
+        recipient_list=[settings.ADMIN_EMAIL], 
         fail_silently=False) 
 
 
