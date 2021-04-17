@@ -9,7 +9,17 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect, HttpRespons
 from django.core.mail import send_mail
 from django.conf import settings
 
-def send_email(form_data, remote_ip):
+def send_email(form_data, http_header):
+
+    try:
+        if http_header.get('HTTP_X_REAL_IP'):
+            remote_ip = http_header.get('HTTP_X_REAL_IP')
+        elif http_header.get('X-FORWARDED-FOR'):
+            http_header.get('X-FORWARDED-FOR')
+        else:
+            remote_ip = http_header.get('REMOTE_ADDR')
+    except:
+        remote_ip = 'We were not able to fetch IP Address of client'
 
     form_message = form_data.cleaned_data['message']
     subject = form_data.cleaned_data['subject']
@@ -42,16 +52,16 @@ class ContactView(SuccessMessageMixin, CreateView):
 
     def form_invalid(self, form):
 
-        remote_ip = self.request.META.get('REMOTE_ADDR')
-        send_email(form, remote_ip)
+        http_header = self.request.META
+        send_email(form, http_header)
 
         messages.error(self.request, 'Something went wrong with your submission. Please try again.')
         return HttpResponseRedirect('')
 
     def form_valid(self, form):
 
-        remote_ip = self.request.META.get('REMOTE_ADDR')
-        send_email(form, remote_ip)
+        http_header = self.request.META
+        send_email(form, http_header)
 
         messages.success(self.request, 'Your message was submitted successfully!')
         return super().form_valid(form)
