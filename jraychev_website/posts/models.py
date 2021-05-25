@@ -84,6 +84,10 @@ class Post(models.Model):
     #     super(Post, self).save(*args, **kwargs) # Call the "real" save() method.
 
     class Meta:
+        # Orders the default queryset by date. This can be achieved at view level as well!
+        # The query woould look something like this
+        # status = 0, returns all published articles. Check STATUS choice field above.
+        # Post.object.filter(status=0).order_by('-date_posted')
         ordering = ['-date_posted']
 
     def __str__(self):

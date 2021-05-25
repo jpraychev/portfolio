@@ -22,6 +22,16 @@ class PostsView(LoginRequiredMixin, ListView):
     template_name = 'posts/all_posts.html'
     login_url = reverse_lazy('login')
 
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        # Get object for a filtered queryset for featured posts
+        # Always return the a single featured post, maybe filter by date (new first)
+        featured_post = Post.objects.filter(featured=True).order_by('-date_posted')[:1]
+        context['featured_post'] = featured_post
+        print(context['featured_post'])
+        return context
+
 class PostsDetailView(LoginRequiredMixin, DetailView):
 
     # model = Post

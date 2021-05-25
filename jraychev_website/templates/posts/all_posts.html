@@ -9,10 +9,12 @@
         <div class="col-lg-7">
           <div class="d-flex">
             <div class="d-flex flex-column">
-              <img src="https://live-production.wcms.abc-cdn.net.au/9b3b2274ca7572d99b5bcf0c2cebd217?impolicy=wcms_crop_resize&cropH=468&cropW=700&xPos=166&yPos=225&width=862&height=575" 
-              class="img-fluid" alt="Responsive image">
-              <div class="category h4 font-weight-bold pt-2">In Technology</div>
-              <div class="mt-2">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</div>
+                {% for post in featured_post %}
+                    <img src="{{ post.header_image.url }}" 
+                    class="img-fluid" alt="Responsive image">
+                    <div class="category h4 font-weight-bold pt-2">{{ post.title }}</div>
+                    <div class="mt-2">{{ post.content }}</div>
+              {% endfor %}
             </div>
           </div>
         </div>
