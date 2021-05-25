@@ -1,28 +1,42 @@
-{% extends 'home/base.html' %}
+{% extends 'posts/posts_base.html' %}
 
-{% block title %} Single post {% endblock %}
+{% block title %} The Tech - Detail page {% endblock %}
 
 {% block content %}
-    <p> {{ object.title }} by {{ object.author }}</p>
-    
-    
-    {% if request.user == object.author %}
-        <a href = "{% url 'post-update' object.id %}"> Update </a>
-        <a href = "{% url 'post-delete' object.id %}"> Delete </a>
-    {% endif %}
-    
-    <p> Tags: 
-        {% for tag in post.tags.all %}
-            <a href = " {% url 'tag-view-cbv' tag.name %} "> {{ tag }}  </a>
-    {% endfor %}
-    <p> {{ object.subtitle }} </p>
-    <p> {{ object.content }} </p>
-    <p>Posted {{ post.time_created_before }} in 
-        <a href = " {% url 'cat-view-cbv' post.category %} "> {{ post.category }}  </a> 
-    </p>
-    <img class="rounded-circle account-img" src="{{ user.profile_image.url }}">
-    <p> About the author </p>
-    <p> {{ object.author_bio }} </p>
-
-    
+        <div class="row h2 font-weight-bold justify-content-center article-name">
+          <div class="col-lg-8">
+            {{ object.title }}
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div><small class="text-muted">By {{ object.author }}, Posted {{ post.time_created_before }}</small></div>
+          </div>
+          <div class="col-lg-8 mt-4 article-content">
+            {{ object.content }}
+          </div>
+        </div>
+        <!-- Similar articles -->
+        <div class="empty-space-100"></div>
+        <div class="d-flex flex-column mt-4">
+          <div class="h3 font-weight-bold">Related articles</div>
+          <div class="d-flex flex-row mt-4">
+            <img class="img-fluid"
+              style="height:100px;"
+              src="https://media.wired.com/photos/5dd593a829b9c40008b179b3/191:100/w_2338,h_1224,c_limit/Cul-BabyYoda_mandalorian-thechild-1_af408bfd.jpg">
+            <div class="d-flex flex-column ml-4">
+              <div class="h5 font-weight-bold related-article-name">This is an awesome related article</div>
+              <div class="related-article-content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised.</div>
+            </div>
+          </div>
+          <div class="d-flex flex-row mt-4">
+            <img class="img-fluid"
+              style="height:100px;"
+              src="https://media.wired.com/photos/5dd593a829b9c40008b179b3/191:100/w_2338,h_1224,c_limit/Cul-BabyYoda_mandalorian-thechild-1_af408bfd.jpg">
+            <div class="d-flex flex-column ml-4">
+              <div class="h5 font-weight-bold related-article-name">This is an awesome related article</div>
+              <div class="related-article-content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised.</div>
+            </div>
+          </div>
+        </div>
 {% endblock %}
