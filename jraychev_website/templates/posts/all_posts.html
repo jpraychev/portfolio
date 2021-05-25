@@ -12,11 +12,15 @@
                 {% for post in featured_post %}
                     <img src="{{ post.header_image.url }}" 
                     class="img-fluid" alt="Responsive image">
-                    <div class="category h4 font-weight-bold pt-2">{{ post.title }}</div>
-                    <div class="mt-2">{{ post.content }}</div>
+                    <div class="category h4 font-weight-bold pt-2"><a class="anchor-default" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></div>
+                    <div class="mt-2">{{ post.content|truncatechars:'150' }}</div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small class="text-muted">{{ post.category }}</small><small class="text-muted">{{ post.read_time }} read</small>
+                        </div>
               {% endfor %}
             </div>
           </div>
+          
         </div>
           <div class="aside col-lg-5 border-left">
             <div class="h4 font-weight-bold mb-4">Topics to choose from</div>
@@ -55,10 +59,10 @@
             style="height:225px;"
             src="{{ post.header_image.url }}">
             <div class="card-body">
-                <a href="{% url 'post-detail' post.id %}" style="text-decoration: none; color: black;"> 
-                    <div class="h5 font-weight-bold">{{ post.title }}</div>
+                    <div class="h5 font-weight-bold">
+                        <a class="anchor-default" href="{% url 'post-detail' post.id %}"> {{ post.title }}</a>
+                    </div>
                     <p class="card-text">{{ post.content|truncatechars:100}}</p>
-                </a>
             <div class="d-flex justify-content-between align-items-center">
             <small class="text-muted">{{ post.category }}</small><small class="text-muted">{{ post.read_time }} read</small>
             </div>
