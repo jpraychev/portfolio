@@ -28,8 +28,13 @@ class PostsView(LoginRequiredMixin, ListView):
         # Get object for a filtered queryset for featured posts
         # Always return the a single featured post, maybe filter by date (new first)
         featured_post = Post.objects.filter(featured=True).order_by('-date_posted')[:1]
+        # Return top 10 categories
+        categories = Category.objects.all()[:10]
+        # Return top 10 tags
+        tags = Tag.objects.all()[:10]
         context['featured_post'] = featured_post
-        print(context['featured_post'])
+        context['categories'] = categories
+        context['tags'] = tags
         return context
 
 class PostsDetailView(LoginRequiredMixin, DetailView):

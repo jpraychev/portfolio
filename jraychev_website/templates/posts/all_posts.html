@@ -24,11 +24,9 @@
               <div class="col-lg-12">
                 <div class="category h5 font-weight-bold">Category</div>
                 <div class="d-flex flex-wrap justify-content-left align-content-between topic" style="height: 100px;">
-                  <button type="button" class="btn btn-outline-secondary">Artificial Intelligence</button>
-                  <button type="button" class="btn btn-outline-secondary">Linux</button>
-                  <button type="button" class="btn btn-outline-secondary">MikroTik</button>
-                  <button type="button" class="btn btn-outline-secondary">Cisco</button>
-                  <button type="button" class="btn btn-outline-secondary">Programming</button>
+                    {% for cat in categories %}
+                        <button type="button" class="btn btn-outline-secondary">{{ cat.name }}</button>
+                    {% endfor %}
                 </div>
               </div>
             </div>
@@ -36,11 +34,9 @@
               <div class="col-lg-12">
                 <div class="category h5 font-weight-bold">Tags</div>
                 <div class="d-flex flex-wrap justify-content-left align-content-between topic" style="height: 100px;">
-                  <button type="button" class="btn btn-outline-secondary">Artificial Intelligence</button>
-                  <button type="button" class="btn btn-outline-secondary">Linux</button>
-                  <button type="button" class="btn btn-outline-secondary">MikroTik</button>
-                  <button type="button" class="btn btn-outline-secondary">Cisco</button>
-                  <button type="button" class="btn btn-outline-secondary">Programming</button>
+                    {% for tag in tags %}
+                        <button type="button" class="btn btn-outline-secondary">{{ tag.name }}</button>
+                    {% endfor %}
                 </div>
               </div>
             </div>
