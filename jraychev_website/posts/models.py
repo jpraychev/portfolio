@@ -33,6 +33,7 @@ class Post(models.Model):
     tags = models.ManyToManyField(Tag)
     category = models.ForeignKey(Category, on_delete=models.DO_NOTHING)
     status = models.IntegerField(choices=STATUS, default=0)
+    featured = models.BooleanField(default=False)
     
     def get_absolute_url(self):
         return reverse('post-detail', kwargs={'pk': self.pk})
@@ -71,6 +72,12 @@ class Post(models.Model):
             time_since_creation = 'on ' + posted_on
         return time_since_creation
 
+    @property
+    def read_time(self):
+        read_time = floor(len(self.content)/250)
+        if read_time < 2:
+            return (f'{str(read_time)} min')
+        return (f'{str(read_time)} mins')
     # Overriding save method creates a new field which is not dynamic
     # def save(self, *args, **kwargs):
     #     self.time_since_created = timezone.now()-self.date_posted

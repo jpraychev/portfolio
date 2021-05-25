@@ -11,7 +11,7 @@ from django.http import HttpResponseRedirect
 from django.core.exceptions import PermissionDenied
 
 # Define private variables for views
-_PAGINATE_BY = 5
+_PAGINATE_BY = 1
 
 class PostsView(LoginRequiredMixin, ListView):
 
