@@ -29,7 +29,9 @@
                 <div class="category h5 font-weight-bold">Category</div>
                 <div class="d-flex flex-wrap justify-content-left align-content-between topic" style="height: 100px;">
                     {% for cat in categories %}
-                        <button type="button" class="btn btn-outline-secondary">{{ cat.name }}</button>
+                        <a class="anchor-default" href="{% url 'cat-view-cbv' cat.name %}"> 
+                            <button type="button" class="btn btn-outline-secondary">{{ cat.name }}</button>
+                        </a>
                     {% endfor %}
                 </div>
               </div>
@@ -39,7 +41,9 @@
                 <div class="category h5 font-weight-bold">Tags</div>
                 <div class="d-flex flex-wrap justify-content-left align-content-between topic" style="height: 100px;">
                     {% for tag in tags %}
-                        <button type="button" class="btn btn-outline-secondary">{{ tag.name }}</button>
+                        <a class="anchor-default" href="{% url 'tag-view-cbv' tag.name %}"> 
+                            <button type="button" class="btn btn-outline-secondary">{{ tag.name }}</button>
+                        </a>
                     {% endfor %}
                 </div>
               </div>

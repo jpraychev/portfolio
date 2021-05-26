@@ -11,7 +11,7 @@ from django.http import HttpResponseRedirect
 from django.core.exceptions import PermissionDenied
 
 # Define private variables for views
-_PAGINATE_BY = 1
+_PAGINATE_BY = 5
 
 class PostsView(LoginRequiredMixin, ListView):
 
@@ -73,6 +73,12 @@ class TagView(ListView):
         tag_id = get_object_or_404(searched_tag)
 
         return Post.objects.filter(tags=tag_id, status=0)
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        searched_tag = self.kwargs['tag_name']
+        context['searched_tag'] = searched_tag
+        return context
 
 # FBV - passing url parameters
 # def cat_view(request, cat_name):
@@ -98,6 +104,8 @@ class CategoryView(ListView):
     def get_queryset(self):
         # Get cat_name from URL
         # self.kwargs['cat_name'] holds the parameter from URL - urls.py <cat_name>
+        # print(self.kwargs['cat_name'])
+        # print(Category.objects.filter(name='Linux'))
         searched_cat = Category.objects.filter(name=self.kwargs['cat_name']).values_list('id', flat=True)
         print(searched_cat)
         # Get object or throw 404
@@ -105,6 +113,11 @@ class CategoryView(ListView):
 
         return Post.objects.filter(category=cat_id, status=0)
 
+    def get_context_data(self, **kwargs):
+            context = super().get_context_data(**kwargs)
+            searched_category = self.kwargs['cat_name']
+            context['searched_category'] = searched_category
+            return context
 # def create_view(request):
 #     pass
 
