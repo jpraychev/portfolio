@@ -43,6 +43,17 @@ class PostsDetailView(LoginRequiredMixin, DetailView):
     queryset = Post.objects.filter(status=0)
     template_name = 'posts/post_detail.html'
 
+    def get_context_data(self, **kwargs: dict) -> 'dict':
+        context = super().get_context_data(**kwargs)
+        post_id = self.kwargs['pk']
+        # Get post category id from post_id
+        post_cat_id = get_object_or_404(Post.objects.filter(id=post_id).values_list('category', flat=True))
+        # Get related posts from post's category and limit the queryset by 3
+        related_posts = Post.objects.filter(category=post_cat_id)[:3]
+        print(related_posts)
+        context['related_posts'] = related_posts
+        return context
+
 # FBV - passing url parameters
 # def tag_view(request, tag_name):
 
