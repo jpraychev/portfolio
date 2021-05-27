@@ -20,23 +20,18 @@
         <div class="empty-space-100"></div>
         <div class="d-flex flex-column mt-4">
           <div class="h3 font-weight-bold">Related articles</div>
+          {% for related_post in related_posts %}
           <div class="d-flex flex-row mt-4">
             <img class="img-fluid"
               style="height:100px;"
-              src="https://media.wired.com/photos/5dd593a829b9c40008b179b3/191:100/w_2338,h_1224,c_limit/Cul-BabyYoda_mandalorian-thechild-1_af408bfd.jpg">
+              src="{{ related_post.header_image.url }}">
             <div class="d-flex flex-column ml-4">
-              <div class="h5 font-weight-bold related-article-name">This is an awesome related article</div>
-              <div class="related-article-content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised.</div>
+                <a class="anchor-default" href="{% url 'post-detail' related_post.id %}"> 
+                    <div class="h5 font-weight-bold related-article-name">{{ related_post.title }}</div>
+                </a>
+              <div class="related-article-content">{{ related_post.content | truncatechars:'250'}}</div>
             </div>
           </div>
-          <div class="d-flex flex-row mt-4">
-            <img class="img-fluid"
-              style="height:100px;"
-              src="https://media.wired.com/photos/5dd593a829b9c40008b179b3/191:100/w_2338,h_1224,c_limit/Cul-BabyYoda_mandalorian-thechild-1_af408bfd.jpg">
-            <div class="d-flex flex-column ml-4">
-              <div class="h5 font-weight-bold related-article-name">This is an awesome related article</div>
-              <div class="related-article-content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised.</div>
-            </div>
-          </div>
+          {% endfor %}
         </div>
 {% endblock %}
