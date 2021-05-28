@@ -9,9 +9,10 @@
         <div class="col-lg-7">
           <div class="d-flex">
             <div class="d-flex flex-column">
+              <!-- img-fluid -->
                 {% for post in featured_post %}
                     <img src="{{ post.header_image.url }}" 
-                    class="img-fluid" alt="Responsive image">
+                    class="featured-img" alt="Responsive image">
                     <div class="category h4 font-weight-bold pt-2"><a class="anchor-default" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></div>
                     <div class="mt-2">{{ post.content|truncatechars:'150' }}</div>
                     <div class="d-flex justify-content-between align-items-center">
@@ -20,7 +21,6 @@
               {% endfor %}
             </div>
           </div>
-          
         </div>
           <div class="aside col-lg-5 border-left">
             <div class="h4 font-weight-bold mb-4">Topics to choose from</div>
@@ -59,8 +59,7 @@
 {% for post in all_posts %}
     <div class="col-md-4">
         <div class="card mb-4 bg-light border-0">
-            <img class="img-fluid"
-            style="height:225px;"
+            <img class="img-fluid all-post-img"
             src="{{ post.header_image.url }}">
             <div class="card-body">
                     <div class="h5 font-weight-bold">

@@ -83,6 +83,25 @@
     color: black;
 }
 
+.featured-img {
+    max-width: 100%;
+    height: 425px;
+    object-fit: cover;
+}
+
+/* Override img-fluid bootstrap */
+.all-post-img {
+    object-fit: cover;
+    height: 225px;
+}
+
+.related-img,
+.cat-tag-img {
+    max-width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
 @media only screen and (max-width: 768px) {
     .brand {
         text-align: center;

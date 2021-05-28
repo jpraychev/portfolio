@@ -18,12 +18,28 @@
         </div>
         <!-- Similar articles -->
         <div class="empty-space-100"></div>
+        <div class="row">
+          {% for related_post in related_posts %}
+              <div class="col-md-3">
+                  <div class="card mb-4 bg-light border-0">
+                      <img class="img-fluid related-img"
+                      src="{{ related_post.header_image.url }}">     
+                  </div>
+              </div>
+              <div class="col-md-9 mb-4">
+                  <div class="h5 font-weight-bold">
+                      <a class="anchor-default" href="{% url 'post-detail' related_post.id %}"> {{ related_post.title }}</a>
+                  </div>
+                  <p class="card-text">{{ related_post.content | truncatechars:250}}</p>
+              </div>
+            {% endfor %}
+          </div>
+          <!-- 
         <div class="d-flex flex-column mt-4">
           <div class="h3 font-weight-bold">Related articles</div>
           {% for related_post in related_posts %}
           <div class="d-flex flex-row mt-4">
-            <img class="img-fluid"
-              style="height:100px;"
+            <img class="related-img"
               src="{{ related_post.header_image.url }}">
             <div class="d-flex flex-column ml-4">
                 <a class="anchor-default" href="{% url 'post-detail' related_post.id %}"> 
@@ -31,7 +47,7 @@
                 </a>
               <div class="related-article-content">{{ related_post.content | truncatechars:'250'}}</div>
             </div>
-          </div>
+          </div> 
           {% endfor %}
-        </div>
+        </div> -->
 {% endblock %}

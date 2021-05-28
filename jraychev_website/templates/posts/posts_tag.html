@@ -5,19 +5,22 @@
 {% block content %}
 <div class="d-flex flex-column mt-4">
     <div class="h3 font-weight-bold pb-2">Tag: {{ searched_tag }}</div>
-    {% for post in posts_by_tag %}
-    <div class="d-flex flex-row mt-4">
-      <img class="img-fluid"
-        style="height:150px;"
-        src="{{ post.header_image.url }}">
-      <div class="d-flex flex-column ml-4">
-        <a class="anchor-default" href="{% url 'post-detail' post.id %}">
-            <div class="h5 font-weight-bold related-article-name">{{ post.title }}</div>
-        </a>
-        <div class="related-article-content">{{ post.content | truncatechars:'300'}}</div>
+    <div class="row">
+      {% for post in posts_by_tag %}
+          <div class="col-md-3">
+              <div class="card mb-4 bg-light border-0">
+                  <img class="img-fluid related-img"
+                  src="{{ post.header_image.url }}">     
+              </div>
+          </div>
+          <div class="col-md-9 mb-4">
+          <div class="h5 font-weight-bold">
+          <a class="anchor-default" href="{% url 'post-detail' post.id %}"> {{ post.title }}</a>
+          </div>
+          <p class="card-text">{{ post.content | truncatechars:250}}</p>
+          </div>
+        {% endfor %}
       </div>
-    </div>
-    {% endfor %}
 </div>
 {% endblock content %}
 
