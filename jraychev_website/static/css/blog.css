@@ -60,7 +60,7 @@
 }
 
 .topic * {
-    margin-right: 1rem;
+    margin-right: 0.5rem;
 }
 
 /* Styles for single page */
@@ -100,6 +100,10 @@
     max-width: 100%;
     height: 150px;
     object-fit: cover;
+}
+
+.rounded-20 {
+    border-radius: 20px;
 }
 
 @media only screen and (max-width: 768px) {
