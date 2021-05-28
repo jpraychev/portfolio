@@ -61,11 +61,9 @@
           <div class="col-md-6 col-lg-2 mt-4 footer-3">
             <ul class="list-group list-group-flush">
               <h5 class="font-weight-bold">Categories</h3>
-              <li class="list-group-item"><a href="#">Python</a></li>
-              <li class="list-group-item"><a href="#">JavaScript</a></li>
-              <li class="list-group-item"><a href="#">Linux</a></li>
-              <li class="list-group-item"><a href="#">Cisco</a></li>
-              <li class="list-group-item"><a href="#">MikroTik</a></li>
+                {% for category in categories %}
+                <li class="list-group-item"><a class="anchor-default" href="{% url 'cat-view-cbv' category.name %}">{{ category.name }}</a></li>
+                {% endfor %}
             </ul>
           </div>
           <div class="col-md-6 col-lg-4 mt-4 footer-2">

@@ -29,7 +29,7 @@ class PostsView(LoginRequiredMixin, ListView):
         # Always return the a single featured post, maybe filter by date (new first)
         featured_post = Post.objects.filter(featured=True).order_by('-date_posted')[:1]
         # Return top 10 categories
-        categories = Category.objects.all()[:10]
+        categories = Category.objects.all()[:5]
         # Return top 10 tags
         tags = Tag.objects.all()[:10]
         context['featured_post'] = featured_post
