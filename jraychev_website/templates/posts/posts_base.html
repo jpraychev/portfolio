@@ -1,4 +1,6 @@
 {% load static %}
+{% load posts_footer %}
+
 <!DOCTYPE html>
 <html lang="en"><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -7,30 +9,14 @@
     <meta name="description" content="Django powered personal web blog">
     <meta name="author" content="Jordan Raychev">
     <link rel="icon" href="favicon.ico">
-    <title>{% block title%} {% endblock title%}</title>
+    <title>{% block title%} {% endblock title %}</title>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- BLOG Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
   </head>
   <body>
-    <!-- Header section -->
-    <header class="border-bottom sticky-top bg-white">
-        <div class="container justify-content-between pt-3 pb-3">
-          <div class="row">
-            <div class="col-md-6 brand">
-              <a href="{% url 'all-posts' %}" class="navbar-brand">
-                <strong>THE TECH</strong>
-              </a>
-            </div>
-            <div class="col-md-6">
-              <form>
-                <input class="form-control form-control-search" type="search" placeholder="Live search..." aria-label="Search">
-              </form>    
-            </div>
-          </div>
-        </div>
-    </header>
+    {% include 'posts/header.html' %}
     {% block featured %}
     {% endblock featured %}
     <!-- Main section -->
@@ -46,60 +32,7 @@
         </div>
       </div>
     </main>
-  <!-- Footer section -->
-    <footer class="text-muted border-top bg-white">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-lg-2 mt-4 footer-1">
-            <ul class="list-group list-group-flush">
-              <h5 class="font-weight-bold"> About Me</h3>
-              <li class="list-group-item"><a href="#">Who</a></li>
-              <li class="list-group-item"><a href="#">What</a></li>
-              <li class="list-group-item"><a href="#">Why</a></li>
-            </ul>
-          </div>
-          <div class="col-md-6 col-lg-2 mt-4 footer-3">
-            <ul class="list-group list-group-flush">
-              <h5 class="font-weight-bold">Categories</h3>
-                {% for category in categories %}
-                <li class="list-group-item"><a class="anchor-default" href="{% url 'cat-view-cbv' category.name %}">{{ category.name }}</a></li>
-                {% endfor %}
-            </ul>
-          </div>
-          <div class="col-md-6 col-lg-4 mt-4 footer-2">
-            <ul class="list-group list-group-flush">
-              <h5 class="font-weight-bold">Other platforms</h3>
-              <li class="list-group-item"><a href="#">Github</a></li>
-              <li class="list-group-item"><a href="#">LinkedIn</a></li>
-              <li class="list-group-item"><a href="#">Twitter</a></li>
-            </ul>
-          </div>
-          <div class="col-md-6 col-lg-4 mt-4 footer-4">
-            <h5 class="font-weight-bold">Subscribe to my newsletter!</h3>
-            <p class="text-muted">By subscribing to my newsletter you will be notified when
-              new articles are published as well as some other tips and trick.
-            </p>
-            <form class="mt-4">
-              <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Email address">
-                <div class="input-group-append">
-                  <button class="btn btn-primary" type="button">Subscribe</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <!-- Copyright section -->
-      <copyright>
-        <div class="d-flex justify-content-center bg-dark pt-4 pb-4 mt-4">
-          <div class="d-flex flex-column align-items-center text-light">
-            <h5>The Tech Blog</h5>
-            <div>Copyright 2021. All Rights Reserved.</div>
-          </div>
-        </div>
-      </copyright>
-    </footer>
+    {% get_footer %}
     <!-- Bootstrap core JavaScript -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

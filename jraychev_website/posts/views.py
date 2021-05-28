@@ -9,6 +9,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .forms import PostCreateForm, PostUpdateForm
 from django.http import HttpResponseRedirect
 from django.core.exceptions import PermissionDenied
+from accounts.models import UserSocial
 
 # Define private variables for views
 _PAGINATE_BY = 5
@@ -28,10 +29,9 @@ class PostsView(LoginRequiredMixin, ListView):
         # Get object for a filtered queryset for featured posts
         # Always return the a single featured post, maybe filter by date (new first)
         featured_post = Post.objects.filter(featured=True).order_by('-date_posted')[:1]
-        # Return top 10 categories
         categories = Category.objects.all()[:5]
-        # Return top 10 tags
-        tags = Tag.objects.all()[:10]
+        tags = Tag.objects.all()[:5]
+        
         context['featured_post'] = featured_post
         context['categories'] = categories
         context['tags'] = tags

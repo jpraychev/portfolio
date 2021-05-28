@@ -1,0 +1,54 @@
+  <!-- Footer section -->
+  <footer class="text-muted border-top bg-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-2 mt-4 footer-1">
+          <ul class="list-group list-group-flush">
+            <h5 class="font-weight-bold">Tags</h3>
+              {% for tag in tags %}
+              <li class="list-group-item"><a href="{% url 'tag-view-cbv' tag.name %}">{{ tag.name }}</a></li>
+              {% endfor %}
+          </ul>
+        </div>
+        <div class="col-md-6 col-lg-2 mt-4 footer-3">
+          <ul class="list-group list-group-flush">
+            <h5 class="font-weight-bold">Categories</h3>
+              {% for category in categories %}
+              <li class="list-group-item"><a href="{% url 'cat-view-cbv' category.name %}">{{ category.name }}</a></li>
+              {% endfor %}
+          </ul>
+        </div>
+        <div class="col-md-6 col-lg-4 mt-4 footer-2">
+          <ul class="list-group list-group-flush">
+            <h5 class="font-weight-bold">Social platforms</h3>
+              {% for social in user_social %}
+              <li class="list-group-item"><a target="_blank" href="{{ social.social_url }}"> <i class="{{ social.social_class }}"></i>{{ social.social_name }}</a></li>
+              {% endfor %}
+          </ul>
+        </div>
+        <div class="col-md-6 col-lg-4 mt-4 footer-4">
+          <h5 class="font-weight-bold">Subscribe to my newsletter!</h3>
+          <p class="text-muted">By subscribing to my newsletter you will be notified when
+            new articles are published as well as some other tips and trick.
+          </p>
+          <form class="mt-4">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Email address">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">Subscribe</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Copyright section -->
+    <copyright>
+      <div class="d-flex justify-content-center bg-dark pt-4 pb-4 mt-4">
+        <div class="d-flex flex-column align-items-center text-light">
+          <h5>The Tech Blog</h5>
+          <div>Copyright {% now "Y" %}. All Rights Reserved.</div>
+        </div>
+      </div>
+    </copyright>
+  </footer>
