@@ -21,8 +21,8 @@
         <div class="col-md-6 col-lg-4 mt-4 footer-2">
           <ul class="list-group list-group-flush">
             <h5 class="font-weight-bold">Social platforms</h3>
-              {% for social in user_social %}
-              <li class="list-group-item"><a target="_blank" href="{{ social.social_url }}"> <i class="{{ social.social_class }}"></i>{{ social.social_name }}</a></li>
+              {% for user_social in user_socials %}
+              <li class="list-group-item"><a target="_blank" href="{{ user_social.social_url }}">{{ user_social.social_name }}</a></li>
               {% endfor %}
           </ul>
         </div>

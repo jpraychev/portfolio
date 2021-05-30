@@ -2,6 +2,8 @@ from django import template
 from posts.models import Category, Tag
 from accounts.models import UserSocial
 
+''' This is depricated! Left out just for reference
+'''
 register = template.Library()
 
 @register.inclusion_tag('posts/footer.html', takes_context=True)
