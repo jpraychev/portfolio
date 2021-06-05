@@ -1,5 +1,4 @@
-// Hold function for all API requests
-
+// All API calls
 const postsURL = 'http://localhost:8000/api/v1/posts'
 
 const getPosts = async (url) => {
@@ -8,29 +7,23 @@ const getPosts = async (url) => {
     return postsData
 }
 
-const displayPosts = async (data) => {
-    const postObject = await getPosts(postsURL)
-    const posts = postObject.posts
-    // console.log(posts)
-    
-    // Create a regex and search if the typed from user input is in the title of the text
-    
-    const match = posts.filter(post => {
-        const result = post.title.toLowerCase().includes(data.toLowerCase())
-        return result
-        // return post.title.includes(data);
-    })
-    try {
-        console.log(`${match[0].title} in ${match[0].category__name}`)
-    } catch {
-        console.log('No results')
-    }
-    // console.log(match[0].title)
-}
-// Call display Posts
-// displayPosts()  
-
-$("#search-bar").keyup(function(){
-    let searchData = $(this).val();
-    displayPosts(searchData)
+$("#search-bar").on('click', function(){
+    console.log('Searh bar clicked. Starting data download...78.7-72.5')
+    const displayData = async () => {
+        const postsObject = await getPosts(postsURL)
+        const posts = postsObject.posts
+        
+        $("#search-bar").keyup(function(){
+            let searchData = $(this).val().toLowerCase();
+            const match = posts.filter(post => {
+                const result = post.title.toLowerCase().includes(searchData)
+                return result
+            })
+            match.forEach(post => {
+                console.log(post.title)
+            });
+            
+        });
+    };
+    displayData();
 });
