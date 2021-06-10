@@ -107,6 +107,51 @@
     border-radius: 20px;
 }
 
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    background-color: #fff;
+    max-height: 333px;
+    overflow: auto;
+    border: 1px solid #ced4da;
+    z-index: 1;
+    overflow: auto;
+    padding: 15px;
+    padding-left: 25px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.dropdown-content li {
+    list-style-type:none;
+    padding-bottom: 5px;
+}
+
+.dropdown-content li a {
+    color: #000;
+}
+
+/* Show search bar. Class added when user click on search bar */
+.show {
+    display: block;
+}
+
+/* Style search bar */
+.style-search-bar {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    box-shadow: none;
+    border-bottom: 0px;
+
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #ced4da;
+}
+
 @media only screen and (max-width: 768px) {
     .brand {
         text-align: center;
