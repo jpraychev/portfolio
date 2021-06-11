@@ -20,8 +20,9 @@ $("#search-bar").on('click', function(){
                 const result = post.title.toLowerCase().includes(searchData)
                 return result
             })
-            const html = match.map(post =>
-                `<li><a href="${post.id}">${post.title}</a></li>`
+            const html = match.map(post =>`
+                <li><a href="${post.id}">${post.title}</a>
+                <a class="float-right" href="${post.category__name}">in ${post.category__name}</a></li>`
             ).join('');
             $(".dropdown-content").html(html);
         });
