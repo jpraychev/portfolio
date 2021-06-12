@@ -42,7 +42,16 @@ function addSearchStyle() {
     $(".dropdown-content").toggleClass('show');
     $("#search-bar").toggleClass('style-search-bar');
 };
-
+/** 
+* Function returns base url for post or category view
+* @param {string} url - Function accepts a string URL for paramter. If none is specified, base url for posts is used.\
+Note that the parameter for this function has to be identical to the one in posts/urls.py in order for the function to work properly.
+* @return {string} Returns the base url for a specified parameter
+*
+* Basic usage:
+* getBaseUrl() => Base URL for posts view
+* getBaseUrl('category') => Base URL for category view. 
+*/
 const getBasePostUrl  = (url = 'posts') => {
     const httpBaseUrl = $(".dropdown-content").attr("data-url");
     const httpPostsPath = $(".dropdown-content").attr("data-posts-href")
@@ -53,7 +62,6 @@ const getBasePostUrl  = (url = 'posts') => {
     if (url === 'category') {
         baseUrl = `${httpBaseUrl}${categoryUrl}`
     }
-
     return baseUrl
 }
 
