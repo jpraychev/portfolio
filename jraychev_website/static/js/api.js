@@ -24,8 +24,8 @@ $("#search-bar").on('click', function(){
             // ).join('');
             const html = match.map(post => 
                 "<li>\
-                    <a href="+getBasePostUrl('')+""+post.id+">"+post.title+"</a>\
-                    <a class='float-right small text-secondary' href="+getBasePostUrl('category')+""+post.category__name+">in "+post.category__name+"</a>\
+                    <a href="+getBaseUrl('')+""+post.id+">"+post.title+"</a>\
+                    <a class='float-right small text-secondary' href="+getBaseUrl('category')+""+post.category__name+">in "+post.category__name+"</a>\
                 </li>").join('')
             $(".dropdown-content").html(html);
         });
@@ -52,7 +52,7 @@ Note that the parameter for this function has to be identical to the one in post
 * getBaseUrl() => Base URL for posts view
 * getBaseUrl('category') => Base URL for category view. 
 */
-const getBasePostUrl  = (url = 'posts') => {
+const getBaseUrl  = (url = 'posts') => {
     const httpBaseUrl = $(".dropdown-content").attr("data-url");
     const httpPostsPath = $(".dropdown-content").attr("data-posts-href")
     const httpCatPath = $(".dropdown-content").attr("data-cat-href")
