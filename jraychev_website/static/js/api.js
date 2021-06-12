@@ -8,8 +8,6 @@ const getPosts = async (url) => {
 }
 
 $("#search-bar").on('click', function(){
-    console.log('Searh bar clicked. Starting data download...78.7-72.5')
-
     const displayData = async () => {
         const postsObject = await getPosts(postsURL)
         const posts = postsObject.posts
@@ -20,10 +18,15 @@ $("#search-bar").on('click', function(){
                 const result = post.title.toLowerCase().includes(searchData)
                 return result
             })
-            const html = match.map(post =>`
-                <li><a href="${post.id}">${post.title}</a>
-                <a class="float-right" href="${post.category__name}">in ${post.category__name}</a></li>`
-            ).join('');
+            // const html = match.map(post =>`
+            //     <li><a href="${post.id}">${post.title}</a>
+            //     <a class="float-right small text-secondary" href="${post.category__name}"> in ${post.category__name}</a></li>`
+            // ).join('');
+            const html = match.map(post => 
+                "<li>\
+                    <a href="+getBasePostUrl('')+""+post.id+">"+post.title+"</a>\
+                    <a class='float-right small text-secondary' href="+getBasePostUrl('category')+""+post.category__name+">in "+post.category__name+"</a>\
+                </li>").join('')
             $(".dropdown-content").html(html);
         });
     };
@@ -40,14 +43,19 @@ function addSearchStyle() {
     $("#search-bar").toggleClass('style-search-bar');
 };
 
-const getBaseUrl  = () => {
+const getBasePostUrl  = (url = 'posts') => {
     const httpBaseUrl = $(".dropdown-content").attr("data-url");
-    const httpPath = $(".dropdown-content").attr("data-href") 
-    const baseUrl = `${httpBaseUrl}${httpPath}`.split('/')
-    console.log(baseUrl)
-}
+    const httpPostsPath = $(".dropdown-content").attr("data-posts-href")
+    const httpCatPath = $(".dropdown-content").attr("data-cat-href")
+    const categoryUrl = httpCatPath.substring(0,httpCatPath.length-2)
+    var baseUrl = `${httpBaseUrl}${httpPostsPath}`
+    
+    if (url === 'category') {
+        baseUrl = `${httpBaseUrl}${categoryUrl}`
+    }
 
-getBaseUrl()
+    return baseUrl
+}
 
 $(window).on("click", function(event){
     const clickedElemenet = event.target;
