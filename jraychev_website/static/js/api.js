@@ -70,3 +70,34 @@ $(window).on("click", function(event){
     const searchBar = $("#search-bar")[0];
     clickedElemenet == searchBar ? addSearchStyle() : removeSearchStyle();
 })
+
+$('#email-button').on('click', function() {
+    // Get the value from email-address input
+    const userEmail = $('#email-address').val()
+    // console.log(userEmail)
+    console.log(getCoockies('csrftoken'))
+});
+
+/** 
+* Returns browser cookies
+* @summary Return browser cookies in form of an object if function parameters is not specified or returns a single entry from that object
+* @param {string} cookie - Specify a cookie to be returned or leave empty /function call/ to get all cookies in form of object
+* @return {object or string} Returns object or individual cookies
+*/
+
+function getCoockies(cookie='') {
+    const cookies = document.cookie.split(';')
+    var cookieObj = {};
+
+    for (let i=0; i<cookies.length; i++) {
+        var keyValuePair = cookies[i].split('=')
+        var key = keyValuePair[0].trim()
+        var value = keyValuePair[1].trim()
+        cookieObj[key] = value
+    }
+
+    if (cookie in cookieObj) {
+        return cookie === '' ? cookieObj : cookieObj[cookie]
+    }
+    return new Error('There is no such cookies stored in the browser')
+}
