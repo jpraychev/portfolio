@@ -89,15 +89,15 @@ function getCoockies(cookie='') {
     const cookies = document.cookie.split(';')
     var cookieObj = {};
 
-    for (let i=0; i<cookies.length; i++) {
-        var keyValuePair = cookies[i].split('=')
+    cookies.forEach(cookie => {
+        var keyValuePair = cookie.split('=')
         var key = keyValuePair[0].trim()
         var value = keyValuePair[1].trim()
         cookieObj[key] = value
-    }
+    });
 
-    if (cookie in cookieObj) {
-        return cookie === '' ? cookieObj : cookieObj[cookie]
-    }
+    if (cookie === '') { return cookieObj }
+    if (cookie in cookieObj) { return cookieObj[cookie]}
+    
     return new Error('There is no such cookies stored in the browser')
 }
