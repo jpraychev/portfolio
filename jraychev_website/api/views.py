@@ -37,11 +37,13 @@ def subscribe(request):
         if 'email' not in request.POST:
             return HttpResponse('Bad POST Parameters. Please use "email" key')
         user_email = request.POST['email']
+        if not user_email:
+            return HttpResponse('User field cannot be empty value')
         subscribers_list = Subscribe.objects.values_list('email', flat=True)
         if user_email not in subscribers_list:
             subscribe = Subscribe(email=user_email)
             subscribe.save()
             return HttpResponse('You have successfully subscribed!')
-        return HttpResponse('User already exists')      
+        return HttpResponse('You have already subsribed!')      
     else:
         raise PermissionDenied

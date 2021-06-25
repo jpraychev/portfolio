@@ -74,8 +74,25 @@ $(window).on("click", function(event){
 $('#email-button').on('click', function() {
     // Get the value from email-address input
     const userEmail = $('#email-address').val()
-    // console.log(userEmail)
-    console.log(getCoockies('csrftoken'))
+    const url = 'http://127.0.0.1:8000/api/v1/subscribe/'
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+    
+    var urlencoded = new URLSearchParams();
+    urlencoded.append('email', userEmail);
+    
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: urlencoded,
+        redirect: 'follow'
+    };
+    
+    fetch("http://127.0.0.1:8000/api/v1/subscribe/", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
 });
 
 /** 
