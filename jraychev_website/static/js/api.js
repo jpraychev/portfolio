@@ -74,13 +74,17 @@ $(window).on("click", function(event){
 $('#email-button').on('click', function() {
     // Get the value from email-address input
     const userEmail = $('#email-address').val()
-    const url = 'http://127.0.0.1:8000/api/v1/subscribe/'
+    const csrfToken = $("input[name='csrfmiddlewaretoken']").val()
+    const cookies = document.cookie
+    const url = 'http://localhost:8000/api/v1/subscribe/'
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-    
+    myHeaders.append("Cookie", cookies);
+
     var urlencoded = new URLSearchParams();
     urlencoded.append('email', userEmail);
+    urlencoded.append('csrfmiddlewaretoken', csrfToken);
     
     var requestOptions = {
         method: 'POST',
@@ -89,10 +93,11 @@ $('#email-button').on('click', function() {
         redirect: 'follow'
     };
     
-    fetch("http://127.0.0.1:8000/api/v1/subscribe/", requestOptions)
+    fetch(url, requestOptions)
       .then(response => response.text())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
+
 });
 
 /** 

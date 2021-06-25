@@ -31,8 +31,9 @@
           <p class="text-muted">By subscribing to my newsletter you will be notified when
             new articles are published as well as some other tips and trick.
           </p>
-          <form class="mt-4">
+          <form class="mt-4" onsubmit="return false;">
             <div class="input-group mb-3">
+              {% csrf_token %}
               <input id="email-address" type="text" class="form-control" placeholder="Email address">
               <div class="input-group-append">
                 <button id="email-button" class="btn btn-primary" type="button">Subscribe</button>

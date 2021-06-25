@@ -29,7 +29,7 @@ def subscribers(request):
     return JsonResponse(data)
 
 
-@csrf_exempt
+# @csrf_exempt
 def subscribe(request):
     '''API view that saves user provided email as subscriber to the database
     '''
