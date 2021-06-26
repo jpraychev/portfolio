@@ -6,6 +6,7 @@ from django.shortcuts import redirect
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 from django.core.exceptions import PermissionDenied
+from django.core.validators import validate_email
 
 def posts(request):
     ''' API view that returns title and category name of all posts
