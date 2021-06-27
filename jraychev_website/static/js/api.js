@@ -74,6 +74,7 @@ $(window).on("click", function(event){
 $('#email-button').on('click', function() {
     // Get the value from email-address input
     const userEmail = $('#email-address').val()
+    $('#email-address').val('')
     const csrfToken = $("input[name='csrfmiddlewaretoken']").val()
     const cookies = document.cookie
     const url = 'http://localhost:8000/api/v1/subscribe/'
