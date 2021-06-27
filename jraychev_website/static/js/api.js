@@ -2,7 +2,7 @@ import { getBaseUrl, getCoockies, addSearchStyle, removeSearchStyle} from './lib
 
 // API URLS
 const postsURL = `${getBaseUrl()}/api/v1/posts`
-const subscribeURL = `${getBaseUrl()}/api/v1/subscribe`
+const subscribeURL = `${getBaseUrl()}/api/v1/subscribegit`
 
 // All API calls
 const getPosts = async (url) => {
