@@ -14,3 +14,8 @@ jraychev_website/posts/__pycache__/
 jraychev_website/posts/migrations/
 jraychev_website/staticpages/__pycache__/
 jraychev_website/staticpages/migrations/
+jraychev_website/api/__pycache__/
+jraychev_website/subscribe/__pycache__/
+jraychev_website/subscribe/migrations/
+jraychev_website/api/migrations/
+jraychev_website/posts/templatetags/__pycache__/
